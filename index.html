@@ -1,525 +1,998 @@
+<!-- boredom-death-lab.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Architecture of Agency: A Unified Field Theory</title>
+    <title>Boredom Death Lab - Ethics Beyond Boundaries</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #f3f4f6; /* Slate 100 for a clean base, sections will have colors */
-            color: #1f2937;
+        @media print {
+            .no-print { display: none; }
         }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e5e7eb;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4c1d95;
-            border-radius: 4px;
-        }
-        
-        /* Chart Container Utilities */
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px; /* max-w-2xl equiv */
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        
-        /* Card Hover Effects */
-        .interactive-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .interactive-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Step Connector for Vertical Timeline */
-        .step-line {
-            position: absolute;
-            left: 24px;
-            top: 40px;
-            bottom: -20px;
-            width: 4px;
-            background-color: #e5e7eb;
-            z-index: 0;
-        }
-        .step-item:last-child .step-line {
-            display: none;
-        }
-
-        /* Vibrant Palette Classes */
-        .bg-vibrant-purple { background-color: #4c1d95; }
-        .text-vibrant-purple { color: #4c1d95; }
-        .bg-vibrant-cyan { background-color: #06b6d4; }
-        .text-vibrant-cyan { color: #06b6d4; }
-        .bg-vibrant-pink { background-color: #db2777; }
-        .text-vibrant-pink { color: #db2777; }
-        .bg-vibrant-yellow { background-color: #f59e0b; }
-        .text-vibrant-yellow { color: #f59e0b; }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-gray-50">
 
-    <!-- Navigation (Sticky) -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-pink-600">
-                        Agential Semiosphere
-                    </span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#intro" class="text-gray-600 hover:text-purple-700 font-medium transition-colors">Convergence</a>
-                    <a href="#framework" class="text-gray-600 hover:text-purple-700 font-medium transition-colors">The 3 Pillars</a>
-                    <a href="#semiosphere" class="text-gray-600 hover:text-purple-700 font-medium transition-colors">Semiosis</a>
-                    <a href="#cib" class="text-gray-600 hover:text-purple-700 font-medium transition-colors">Life Detection (CIB)</a>
-                    <a href="#thermodynamics" class="text-gray-600 hover:text-purple-700 font-medium transition-colors">Thermodynamics</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="intro" class="relative bg-vibrant-purple text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <!-- decorative background pattern using CSS gradients -->
-            <div class="absolute inset-0" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                The Architecture of <span class="text-vibrant-cyan">Agency</span>
-            </h1>
-            <p class="mt-4 text-xl md:text-2xl max-w-3xl mx-auto text-purple-100 font-light">
-                A Unified Field Theory connecting <span class="font-bold text-vibrant-yellow">Thermodynamics</span>, <span class="font-bold text-vibrant-pink">Biosemiotics</span>, and the <span class="font-bold text-vibrant-cyan">Geometry of Physics</span>.
-            </p>
-            <div class="mt-10">
-                <p class="text-lg text-purple-200 mb-8">
-                    We are moving from a "ghost in the machine" dualism to a rigorous physics of meaning. Discover how the "Coherent Information Bit" (CIB) and "Top-Down Causation" define life itself.
+<div id="app" class="min-h-screen">
+    <!-- Landing Page -->
+    <div id="landing" class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">
+                    The Boredom Death Lab
+                </h1>
+                <p class="text-xl text-gray-600">
+                    Ethics Beyond Boundaries - Chapter 21
                 </p>
-                <a href="#framework" class="inline-block bg-vibrant-yellow text-purple-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-400 transition-colors">
-                    Explore the Framework
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- The 3 Pillars Framework -->
-    <section id="framework" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">The Unified Triad</h2>
-                <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-                    The report synthesizes three disparate fields to explain the "observer." Click or hover over the cards below to understand the connection.
+                <p class="text-lg text-gray-500 mt-2">
+                    Saint Petersburg College - Prof. Bob Kendrick
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="interactive-card bg-gray-50 rounded-xl p-8 border-t-4 border-vibrant-cyan shadow-sm relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold text-vibrant-cyan">1</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Geometry & Topology</h3>
-                    <p class="text-sm font-bold text-vibrant-cyan uppercase tracking-wide mb-4">The Container</p>
-                    <p class="text-gray-600 mb-4">
-                        Based on <strong>Invariant Set Theory (IST)</strong>. Reality is a fractal, non-Archimedean geometric structure.
-                    </p>
-                    <div class="bg-white p-4 rounded-lg shadow-inner text-sm text-gray-500">
-                        <strong>Key Insight:</strong> The "Agential Manifold" is the map of all valid states an organism can occupy.
-                    </div>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="interactive-card bg-gray-50 rounded-xl p-8 border-t-4 border-vibrant-pink shadow-sm relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold text-vibrant-pink">2</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Biosemiotics</h3>
-                    <p class="text-sm font-bold text-vibrant-pink uppercase tracking-wide mb-4">The Translator</p>
-                    <p class="text-gray-600 mb-4">
-                        <strong>Thomas Sebeok's Modeling Systems.</strong> How physical signals are converted into meaningful signs.
-                    </p>
-                    <div class="bg-white p-4 rounded-lg shadow-inner text-sm text-gray-500">
-                        <strong>Key Insight:</strong> Life is not just chemistry; it is the interpretation of signs (Semiosis).
-                    </div>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="interactive-card bg-gray-50 rounded-xl p-8 border-t-4 border-vibrant-yellow shadow-sm relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold text-vibrant-yellow">3</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Thermodynamics</h3>
-                    <p class="text-sm font-bold text-vibrant-yellow uppercase tracking-wide mb-4">The Cost</p>
-                    <p class="text-gray-600 mb-4">
-                        <strong>Non-Equilibrium Physics.</strong> Maintaining agency requires a constant battle against entropy.
-                    </p>
-                    <div class="bg-white p-4 rounded-lg shadow-inner text-sm text-gray-500">
-                        <strong>Key Insight:</strong> "Goodness" and "Meaning" are high-energy states. Stress degrades them.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Semiosphere Section (Chart + Process) -->
-    <section id="semiosphere" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Introduction -->
+            <div class="prose prose-lg max-w-none mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                    Are You Experiencing Identity Aging?
+                </h2>
                 
-                <!-- Chart Column -->
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">The Nested Semiosphere</h2>
-                    <p class="text-gray-600 mb-8 text-lg">
-                        The "Agential Semiosphere" is not a flat plane but a nested hierarchy of meaning-making systems. Just as the biosphere contains ecosystems, the Semiosphere contains "Umwelts" (subjective worlds).
+                <p class="text-gray-700 mb-4">
+                    Dr. Michael Levin at Tufts University discovered that organisms don't age 
+                    primarily because of DNA damage. They age when their <strong>bioelectric 
+                    patterns</strong> degrade - when they lose the informational "map" telling 
+                    cells what to maintain.
+                </p>
+
+                <p class="text-gray-700 mb-4">
+                    His most radical hypothesis: organisms age when they <strong>complete their 
+                    developmental goals</strong> and have no new challenges. He calls this 
+                    <em>"boredom death."</em>
+                </p>
+
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 my-6">
+                    <p class="font-semibold text-indigo-900 mb-2">The Key Insight:</p>
+                    <p class="text-indigo-800">
+                        Planarian flatworms are functionally immortal. They escape aging by 
+                        constantly tearing in half and regenerating - giving cells perpetual 
+                        developmental challenges. <strong>Purpose prevents decay.</strong>
                     </p>
-                    
-                    <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h4 class="text-lg font-bold text-gray-800 mb-4 text-center">Composition of the Agential Reality</h4>
-                        <!-- Chart Container -->
-                        <div class="chart-container">
-                            <canvas id="semiosphereChart"></canvas>
-                        </div>
-                        <p class="text-xs text-center text-gray-500 mt-4">
-                            *The "Umwelt" is the biological core, wrapped in the "Sociosphere" (Culture), all contained within the universal "Semiosphere".
-                        </p>
-                    </div>
                 </div>
 
-                <!-- Process/Ladder Column -->
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-8">The Ladder of Interpretation</h3>
-                    <p class="text-gray-600 mb-8">
-                        How does a raw physical impact become a complex thought? Sebeok's "Modeling Systems" explain the ascent from matter to mind.
+                <p class="text-gray-700 mb-4">
+                    This lab applies Levin's framework to <strong>you</strong>. Your identity 
+                    is also a bioelectric pattern - what we call your <strong>ATCF</strong> 
+                    (Adaptive Temporal Coherence Function).
+                </p>
+
+                <p class="text-gray-700 mb-6">
+                    This 15-minute assessment will measure your identity coherence across 
+                    four dimensions and detect if you're experiencing boredom death.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-900 mb-3">What You'll Discover:</h3>
+                <ul class="space-y-2 mb-6">
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-600 font-bold">•</span>
+                        <span>Your <strong>A-score</strong> (Autobiographical Continuity): 
+                        Connection to your past</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-600 font-bold">•</span>
+                        <span>Your <strong>T-score</strong> (Temporal Integration): 
+                        Present-moment capacity</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-600 font-bold">•</span>
+                        <span>Your <strong>C-score</strong> (Prospective Coherence): 
+                        Future horizons and hope</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-600 font-bold">•</span>
+                        <span>Your <strong>F-score</strong> (Meta-Constructive Capacity): 
+                        Ability to learn and adapt</span>
+                    </li>
+                </ul>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-6">
+                    <p class="font-semibold text-yellow-900 mb-2">The Boredom Death Pattern:</p>
+                    <p class="text-yellow-800">
+                        <strong>High A</strong> (solid past, achievements) + 
+                        <strong>Low C</strong> (no compelling future) + 
+                        <strong>Low F</strong> (not growing) = 
+                        <span class="font-bold">Your identity is degrading</span>
                     </p>
-
-                    <div class="relative pl-4">
-                        <!-- Step 1 -->
-                        <div class="step-item relative pl-12 pb-12">
-                            <div class="step-line"></div>
-                            <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-vibrant-cyan text-white flex items-center justify-center font-bold text-xl shadow-lg z-10">1</div>
-                            <h4 class="text-xl font-bold text-gray-900">Alpha-Mode (Signal)</h4>
-                            <p class="text-sm font-semibold text-vibrant-cyan mb-2">Primary Modeling System</p>
-                            <p class="text-gray-600">
-                                <strong>Raw Physics.</strong> The organism detects a photon or a chemical gradient. It is a "read-only" state. No interpretation, just reaction.
-                            </p>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="step-item relative pl-12 pb-12">
-                            <div class="step-line"></div>
-                            <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-vibrant-pink text-white flex items-center justify-center font-bold text-xl shadow-lg z-10">2</div>
-                            <h4 class="text-xl font-bold text-gray-900">Beta-Mode (Index/Icon)</h4>
-                            <p class="text-sm font-semibold text-vibrant-pink mb-2">Secondary Modeling System</p>
-                            <p class="text-gray-600">
-                                <strong>Pattern Recognition.</strong> The signal becomes a "Sign". The footprint implies a predator. The "Umwelt" is born here.
-                            </p>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="step-item relative pl-12">
-                            <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-vibrant-purple text-white flex items-center justify-center font-bold text-xl shadow-lg z-10">3</div>
-                            <h4 class="text-xl font-bold text-gray-900">Tertiary Mode (Symbol)</h4>
-                            <p class="text-sm font-semibold text-vibrant-purple mb-2">Tertiary Modeling System</p>
-                            <p class="text-gray-600">
-                                <strong>Abstract Formalism.</strong> Language, Mathematics, Code. We detach from the immediate physical world to create "Virtual Models" (Simulations), which we then impose back onto reality (Downward Causation).
-                            </p>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Agnostic Life Detection (CIB) Section -->
-    <section id="cib" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Agnostic Life Detection</h2>
-                <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-                    How do we find life if it doesn't look like us? We look for the "Coherent Information Bit" (CIB).
+                <p class="text-gray-700 mb-6">
+                    If detected, you'll receive evidence-based "anthrobot protocols" - 
+                    regenerative challenges proven to reverse the pattern.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Data Viz: Assembly Index -->
-                <div class="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">The Molecular Assembly Index (MAI)</h3>
-                    <p class="text-sm text-gray-500 mb-6">
-                        Assembly Theory (Cronin/Walker) states that molecules with high complexity cannot form by chance. There is a statistical "wall" at ~15 steps.
-                    </p>
-                    <div class="chart-container">
-                        <canvas id="cibChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Concept: The Ladder of Detection -->
-                <div class="flex flex-col justify-center space-y-6">
-                    <div class="bg-vibrant-purple text-white p-6 rounded-lg shadow-lg">
-                        <h4 class="text-xl font-bold mb-2">1. The "N=1" Problem</h4>
-                        <p class="opacity-90">Historically, we only looked for "Terran" life (Water, DNA). This limited us.</p>
-                    </div>
-                    <div class="bg-vibrant-pink text-white p-6 rounded-lg shadow-lg transform translate-x-4">
-                        <h4 class="text-xl font-bold mb-2">2. Agnostic Biosignatures</h4>
-                        <p class="opacity-90">We now look for "Complexity" and "Disequilibrium". Life is a system that encodes information into matter.</p>
-                    </div>
-                    <div class="bg-vibrant-cyan text-white p-6 rounded-lg shadow-lg transform translate-x-8">
-                        <h4 class="text-xl font-bold mb-2">3. The CIB Metric</h4>
-                        <p class="opacity-90">The <strong>Coherent Information Bit</strong> is the unit of agency. It quantifies the "Blueprint" required to assemble the molecule.</p>
-                    </div>
+            <!-- Consent & Privacy -->
+            <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Privacy & Data Use:</h3>
+                <div class="space-y-2 text-sm text-gray-700">
+                    <label class="flex items-start gap-3">
+                        <input type="checkbox" id="consent-personal" class="mt-1">
+                        <span>I understand this assessment is for educational purposes and 
+                        does not constitute medical or psychological advice.</span>
+                    </label>
+                    <label class="flex items-start gap-3">
+                        <input type="checkbox" id="consent-data" class="mt-1">
+                        <span>I consent to my <strong>anonymized</strong> results being used 
+                        for class discussion and research (your name will never be attached 
+                        to your data).</span>
+                    </label>
+                    <label class="flex items-start gap-3">
+                        <input type="checkbox" id="consent-optional" class="mt-1">
+                        <span><em>Optional:</em> I'm willing to share my results with the 
+                        class during discussion.</span>
+                    </label>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Thermodynamics & Sapolsky Limit -->
-    <section id="thermodynamics" class="py-20 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Student Info (Optional) -->
+            <div class="mb-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">
+                    Student Information (Optional):
+                </h3>
+                <p class="text-sm text-gray-600 mb-4">
+                    Providing this helps with class aggregate analysis. Leave blank for 
+                    complete anonymity.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <input 
+                        type="text" 
+                        id="student-name" 
+                        placeholder="Your name (optional)"
+                        class="px-4 py-2 border border-gray-300 rounded-lg"
+                    >
+                    <input 
+                        type="number" 
+                        id="student-age" 
+                        placeholder="Age"
+                        class="px-4 py-2 border border-gray-300 rounded-lg"
+                    >
+                    <input 
+                        type="text" 
+                        id="student-major" 
+                        placeholder="Major/Program"
+                        class="px-4 py-2 border border-gray-300 rounded-lg"
+                    >
+                    <select id="student-year" class="px-4 py-2 border border-gray-300 rounded-lg">
+                        <option value="">Year in school</option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <button 
+                onclick="startAssessment()" 
+                id="start-btn"
+                disabled
+                class="w-full py-4 bg-indigo-600 text-white rounded-lg font-bold text-lg
+                       hover:bg-indigo-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+                Begin Assessment (15 minutes)
+            </button>
+            <p class="text-sm text-gray-500 text-center mt-2">
+                You must consent to the educational use of data to proceed
+            </p>
+        </div>
+    </div>
+
+    <!-- Assessment Questions -->
+    <div id="assessment" class="hidden max-w-3xl mx-auto px-4 py-8">
+        <!-- Progress Bar -->
+        <div class="mb-8">
+            <div class="flex justify-between text-sm text-gray-600 mb-2">
+                <span>Question <span id="current-q">1</span> of <span id="total-q">20</span></span>
+                <span><span id="progress-pct">0</span>% Complete</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+                <div id="progress-bar" class="bg-indigo-600 h-3 rounded-full transition-all" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-6">
+            <!-- Component Label -->
+            <div class="mb-4">
+                <span id="component-label" class="inline-block px-4 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold">
+                    Component Loading...
+                </span>
+            </div>
+
+            <!-- Question Text -->
+            <h2 id="question-text" class="text-2xl font-bold text-gray-900 mb-8">
+                Question loading...
+            </h2>
+
+            <!-- Likert Scale -->
+            <div class="space-y-4">
+                <div class="flex justify-between text-sm text-gray-600 mb-2">
+                    <span>Strongly Disagree</span>
+                    <span>Neutral</span>
+                    <span>Strongly Agree</span>
+                </div>
                 
-                <!-- Left Text -->
-                <div class="lg:col-span-1">
-                    <h2 class="text-3xl font-bold text-vibrant-yellow mb-6">The Thermodynamics of Good & Evil</h2>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Agency is expensive. High-level moral reasoning and "Logical Depth" require massive metabolic energy.
-                    </p>
-                    <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-vibrant-pink">
-                        <h4 class="text-lg font-bold text-white mb-2">The Sapolsky Limit</h4>
-                        <p class="text-sm text-gray-400">
-                            Behavioral biologist Robert Sapolsky has shown that under high stress (Entropy), the brain's frontal cortex shuts down. We regress from "Tertiary Mode" (Ethics/Logic) to "Alpha Mode" (Reaction/Survival).
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Right Chart -->
-                <div class="lg:col-span-2">
-                    <div class="bg-gray-800 rounded-xl p-6 shadow-xl">
-                        <h4 class="text-lg font-bold text-white mb-4">Entropy vs. Agential Capacity</h4>
-                        <div class="chart-container">
-                            <canvas id="entropyChart"></canvas>
-                        </div>
-                        <p class="text-xs text-center text-gray-400 mt-4">
-                            *As Environmental Entropy (Stress/Chaos) increases, the capacity for Agency (Choice/Morality) plummets.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- The Solution: Exo-Constructors -->
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div class="p-4">
-                    <div class="w-16 h-16 bg-vibrant-cyan rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🏛️</div>
-                    <h3 class="text-xl font-bold mb-2">Exo-Constructors</h3>
-                    <p class="text-gray-400 text-sm">We build institutions (Laws, Culture, Religion) to offload the cognitive cost of being "Good".</p>
-                </div>
-                <div class="p-4">
-                    <div class="w-16 h-16 bg-vibrant-yellow rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🧠</div>
-                    <h3 class="text-xl font-bold mb-2">Neuronal Recycling</h3>
-                    <p class="text-gray-400 text-sm">We "recycle" our primate brains to process high-level symbols (Reading, Math) through cultural training.</p>
-                </div>
-                <div class="p-4">
-                    <div class="w-16 h-16 bg-vibrant-pink rounded-full flex items-center justify-center text-3xl mx-auto mb-4">⚖️</div>
-                    <h3 class="text-xl font-bold mb-2">Moral Commonwealth</h3>
-                    <p class="text-gray-400 text-sm">The goal: Create a low-entropy society where the "energy cost" of moral behavior is affordable.</p>
+                <div class="flex gap-2 justify-between">
+                    <button onclick="answer(1)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        1
+                    </button>
+                    <button onclick="answer(2)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        2
+                    </button>
+                    <button onclick="answer(3)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        3
+                    </button>
+                    <button onclick="answer(4)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        4
+                    </button>
+                    <button onclick="answer(5)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        5
+                    </button>
+                    <button onclick="answer(6)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        6
+                    </button>
+                    <button onclick="answer(7)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                        7
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-500 text-sm">
-                Generated based on the analysis of: "Architecture of Agnostic Life Detection", "Agential Semiosphere", "Thermodynamics of Agency", and "Bio-Semiotic and Geometric Architecture".
-            </p>
-            <p class="text-gray-400 text-xs mt-2">
-                © 2025 Agential Semiosphere Synthesis Project.
-            </p>
-        </div>
-    </footer>
+        <!-- Back Button -->
+        <button onclick="previousQuestion()" id="back-btn" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+            ← Previous Question
+        </button>
+    </div>
 
-    <!-- Chart.js Logic -->
-    <script>
-        // --- Shared Configurations ---
-        Chart.defaults.font.family = "'Space Grotesk', sans-serif";
-        Chart.defaults.color = '#4b5563';
+    <!-- Results Page -->
+    <div id="results" class="hidden max-w-5xl mx-auto px-4 py-8">
+        <!-- Results content will be generated by JavaScript -->
+    </div>
+</div>
 
-        // --- Label Wrapping Helper ---
-        function wrapLabel(label) {
-            if (label.length > 16) {
-                const words = label.split(' ');
-                const lines = [];
-                let currentLine = words[0];
+<script>
+// ==========================================
+// ASSESSMENT DATA
+// ==========================================
 
-                for (let i = 1; i < words.length; i++) {
-                    if (currentLine.length + 1 + words[i].length <= 16) {
-                        currentLine += ' ' + words[i];
-                    } else {
-                        lines.push(currentLine);
-                        currentLine = words[i];
-                    }
-                }
-                lines.push(currentLine);
-                return lines;
-            }
-            return label;
+const questions = [
+    // A - Autobiographical Continuity (5 questions)
+    {
+        component: 'A',
+        text: 'I can tell a coherent story connecting my past to my present',
+        reverse: false,
+        componentName: 'Autobiographical Continuity'
+    },
+    {
+        component: 'A',
+        text: 'Current values align with the person I\'ve always been',
+        reverse: false,
+        componentName: 'Autobiographical Continuity'
+    },
+    {
+        component: 'A',
+        text: 'I feel disconnected from my past self',
+        reverse: true,
+        componentName: 'Autobiographical Continuity'
+    },
+    {
+        component: 'A',
+        text: 'My life story makes sense as a unified whole',
+        reverse: false,
+        componentName: 'Autobiographical Continuity'
+    },
+    {
+        component: 'A',
+        text: 'Major past decisions reflect who I truly am',
+        reverse: false,
+        componentName: 'Autobiographical Continuity'
+    },
+
+    // T - Temporal Integration (5 questions)
+    {
+        component: 'T',
+        text: 'I feel overwhelmed by daily demands',
+        reverse: true,
+        componentName: 'Temporal Integration (Present Capacity)'
+    },
+    {
+        component: 'T',
+        text: 'I can focus clearly on complex problems',
+        reverse: false,
+        componentName: 'Temporal Integration (Present Capacity)'
+    },
+    {
+        component: 'T',
+        text: 'I have enough energy for things that matter',
+        reverse: false,
+        componentName: 'Temporal Integration (Present Capacity)'
+    },
+    {
+        component: 'T',
+        text: 'I feel mentally exhausted most of the time',
+        reverse: true,
+        componentName: 'Temporal Integration (Present Capacity)'
+    },
+    {
+        component: 'T',
+        text: 'I have mental bandwidth for thoughtful decisions',
+        reverse: false,
+        componentName: 'Temporal Integration (Present Capacity)'
+    },
+
+    // C - Prospective Coherence (5 questions) - KEY FOR BOREDOM DEATH
+    {
+        component: 'C',
+        text: 'I can clearly imagine myself 5-10 years from now',
+        reverse: false,
+        componentName: 'Prospective Coherence (Future Horizons)'
+    },
+    {
+        component: 'C',
+        text: 'I have meaningful goals for my future',
+        reverse: false,
+        componentName: 'Prospective Coherence (Future Horizons)'
+    },
+    {
+        component: 'C',
+        text: 'My biggest achievements are behind me',
+        reverse: true,
+        componentName: 'Prospective Coherence (Future Horizons)',
+        boredomWeight: 0.9  // High indicator
+    },
+    {
+        component: 'C',
+        text: 'I can see a path forward toward the life I want',
+        reverse: false,
+        componentName: 'Prospective Coherence (Future Horizons)'
+    },
+    {
+        component: 'C',
+        text: 'Planning for the future feels pointless or overwhelming',
+        reverse: true,
+        componentName: 'Prospective Coherence (Future Horizons)',
+        boredomWeight: 0.85
+    },
+
+    // F - Meta-Constructive Capacity (5 questions) - KEY FOR BOREDOM DEATH
+    {
+        component: 'F',
+        text: 'I can change my habits when I decide to',
+        reverse: false,
+        componentName: 'Meta-Constructive Capacity (Adaptability)'
+    },
+    {
+        component: 'F',
+        text: 'I learn new things easily',
+        reverse: false,
+        componentName: 'Meta-Constructive Capacity (Adaptability)'
+    },
+    {
+        component: 'F',
+        text: 'I feel stuck in patterns I cannot change',
+        reverse: true,
+        componentName: 'Meta-Constructive Capacity (Adaptability)',
+        boredomWeight: 0.88
+    },
+    {
+        component: 'F',
+        text: 'I actively work on improving myself',
+        reverse: false,
+        componentName: 'Meta-Constructive Capacity (Adaptability)'
+    },
+    {
+        component: 'F',
+        text: 'I can consciously reframe situations for new perspectives',
+        reverse: false,
+        componentName: 'Meta-Constructive Capacity (Adaptability)'
+    }
+];
+
+// ==========================================
+// STATE MANAGEMENT
+// ==========================================
+
+let currentQuestion = 0;
+let responses = [];
+let studentData = {};
+
+// ==========================================
+// ASSESSMENT FLOW
+// ==========================================
+
+function startAssessment() {
+    // Collect student data
+    studentData = {
+        name: document.getElementById('student-name').value || 'Anonymous',
+        age: document.getElementById('student-age').value || null,
+        major: document.getElementById('student-major').value || null,
+        year: document.getElementById('student-year').value || null,
+        consentData: document.getElementById('consent-data').checked,
+        consentShare: document.getElementById('consent-optional').checked,
+        timestamp: new Date().toISOString()
+    };
+
+    // Hide landing, show assessment
+    document.getElementById('landing').classList.add('hidden');
+    document.getElementById('assessment').classList.remove('hidden');
+
+    // Show first question
+    displayQuestion();
+}
+
+function displayQuestion() {
+    const q = questions[currentQuestion];
+    
+    document.getElementById('question-text').textContent = q.text;
+    document.getElementById('component-label').textContent = q.componentName;
+    document.getElementById('current-q').textContent = currentQuestion + 1;
+    document.getElementById('total-q').textContent = questions.length;
+    
+    const progress = ((currentQuestion) / questions.length) * 100;
+    document.getElementById('progress-pct').textContent = Math.round(progress);
+    document.getElementById('progress-bar').style.width = progress + '%';
+
+    // Enable/disable back button
+    document.getElementById('back-btn').disabled = currentQuestion === 0;
+
+    // Reset button styles
+    document.querySelectorAll('.likert-btn').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600');
+        btn.classList.add('border-gray-300', 'text-gray-700');
+    });
+
+    // Highlight previous answer if exists
+    if (responses[currentQuestion] !== undefined) {
+        const previousAnswer = responses[currentQuestion];
+        const buttons = document.querySelectorAll('.likert-btn');
+        buttons[previousAnswer - 1].classList.add('bg-indigo-600', 'text-white', 'border-indigo-600');
+        buttons[previousAnswer - 1].classList.remove('border-gray-300', 'text-gray-700');
+    }
+}
+
+function answer(value) {
+    // Highlight selected button
+    document.querySelectorAll('.likert-btn').forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600');
+        btn.classList.add('border-gray-300', 'text-gray-700');
+    });
+    event.target.classList.add('bg-indigo-600', 'text-white', 'border-indigo-600');
+    event.target.classList.remove('border-gray-300', 'text-gray-700');
+
+    // Record response
+    responses[currentQuestion] = value;
+
+    // Auto-advance after short delay
+    setTimeout(() => {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            displayQuestion();
+        } else {
+            // Assessment complete
+            calculateResults();
+        }
+    }, 300);
+}
+
+function previousQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        displayQuestion();
+    }
+}
+
+// ==========================================
+// SCORING ALGORITHM
+// ==========================================
+
+function calculateResults() {
+    // Calculate component scores
+    const componentScores = { A: [], T: [], C: [], F: [] };
+
+    questions.forEach((q, idx) => {
+        let rawScore = responses[idx];
+        
+        // Reverse score if needed
+        if (q.reverse) {
+            rawScore = 8 - rawScore;  // 7→1, 6→2, etc.
         }
 
-        // --- Tooltip Callback (Mandatory) ---
-        const tooltipCallback = {
-            title: function(tooltipItems) {
-                const item = tooltipItems[0];
-                let label = item.chart.data.labels[item.dataIndex];
-                if (Array.isArray(label)) {
-                    return label.join(' ');
-                } else {
-                    return label;
-                }
-            }
-        };
+        // Normalize to 0-100 scale
+        const normalized = ((rawScore - 1) / 6) * 100;
+        
+        componentScores[q.component].push(normalized);
+    });
 
-        // --- Chart 1: Semiosphere Nested Donut ---
-        const ctxSemio = document.getElementById('semiosphereChart').getContext('2d');
-        new Chart(ctxSemio, {
-            type: 'doughnut',
-            data: {
-                labels: ['Umwelt (Biological Core)', 'Sociosphere (Cultural Layer)', 'Semiosphere (Universal Context)'],
-                datasets: [{
-                    data: [40, 35, 25],
-                    backgroundColor: [
-                        '#db2777', // Pink (Core)
-                        '#06b6d4', // Cyan (Middle)
-                        '#4c1d95'  // Purple (Outer)
-                    ],
-                    borderWidth: 0,
-                    hoverOffset: 10
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '65%',
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { padding: 20, usePointStyle: true }
-                    },
-                    tooltip: {
-                        callbacks: tooltipCallback,
-                        backgroundColor: 'rgba(17, 24, 39, 0.9)',
-                        padding: 12
-                    }
-                }
-            }
+    // Average each component
+    const scores = {
+        A: Math.round(average(componentScores.A)),
+        T: Math.round(average(componentScores.T)),
+        C: Math.round(average(componentScores.C)),
+        F: Math.round(average(componentScores.F))
+    };
+
+    scores.total = Math.round((scores.A + scores.T + scores.C + scores.F) / 4);
+
+    // Detect boredom death pattern
+    const boredomAnalysis = detectBoredomDeath(scores, responses);
+
+    // Save to localStorage (so students can retrieve later)
+    const resultsData = {
+        studentData,
+        scores,
+        boredomAnalysis,
+        responses,
+        completedAt: new Date().toISOString()
+    };
+    
+    localStorage.setItem('atcf-results', JSON.stringify(resultsData));
+
+    // If consent given, also save to aggregate (would be server in real app)
+    if (studentData.consentData) {
+        saveToAggregate(resultsData);
+    }
+
+    // Display results
+    displayResults(scores, boredomAnalysis);
+}
+
+function detectBoredomDeath(scores, responses) {
+    const indicators = [];
+    let patternStrength = 0;
+
+    // Indicator 1: High A with Low C (past solid, future empty)
+    const acGap = scores.A - scores.C;
+    if (scores.A >= 65 && acGap >= 20) {
+        indicators.push({
+            name: 'PAST_FUTURE_DISCONNECT',
+            description: `Strong past (${scores.A}) but weak future (${scores.C})`
         });
+        patternStrength += 0.3;
+    }
 
-        // --- Chart 2: CIB Assembly Index (Bar) ---
-        const ctxCIB = document.getElementById('cibChart').getContext('2d');
-        const cibLabels = ['Simple Molecules', 'Amino Acids', 'Complex Lipids', 'The CIB Threshold', 'Technosignatures'];
-        const processedCibLabels = cibLabels.map(wrapLabel);
+    // Indicator 2: C-component critically low
+    if (scores.C < 50) {
+        indicators.push({
+            name: 'FUTURE_HORIZON_COLLAPSE',
+            description: `Prospective coherence critically low (${scores.C})`
+        });
+        patternStrength += 0.35;
+    }
 
-        new Chart(ctxCIB, {
-            type: 'bar',
-            data: {
-                labels: processedCibLabels,
-                datasets: [{
-                    label: 'Molecular Assembly Index (Steps)',
-                    data: [2, 5, 12, 16, 25],
-                    backgroundColor: (ctx) => {
-                        const val = ctx.raw;
-                        // Color change at threshold > 15
-                        return val > 15 ? '#06b6d4' : '#e5e7eb';
-                    },
-                    borderRadius: 6,
-                    borderSkipped: false
-                }]
+    // Indicator 3: F-component stagnant
+    if (scores.F < 52) {
+        indicators.push({
+            name: 'NEUROPLASTICITY_DECLINE',
+            description: `Meta-constructive capacity low (${scores.F})`
+        });
+        patternStrength += 0.25;
+    }
+
+    // Indicator 4: Check high-weight boredom questions
+    // Question 12 (index 12): "My biggest achievements are behind me"
+    // Question 17 (index 17): "I feel stuck in patterns I cannot change"
+    const q12 = responses[12];
+    const q17 = responses[17];
+    
+    if (q12 >= 5) {  // Agree that achievements are behind
+        indicators.push({
+            name: 'EXPLICIT_PURPOSE_COMPLETION',
+            description: 'Reports major achievements already completed'
+        });
+        patternStrength += 0.10;
+    }
+
+    // Determine risk level
+    let riskLevel = 'NONE';
+    if (patternStrength >= 0.70) riskLevel = 'CRITICAL';
+    else if (patternStrength >= 0.50) riskLevel = 'HIGH';
+    else if (patternStrength >= 0.30) riskLevel = 'MODERATE';
+    else if (patternStrength >= 0.15) riskLevel = 'LOW';
+
+    return {
+        riskLevel,
+        patternStrength: Math.round(patternStrength * 100),
+        indicators,
+        acGap
+    };
+}
+
+function average(arr) {
+    return arr.reduce((a, b) => a + b, 0) / arr.length;
+}
+
+// ==========================================
+// RESULTS DISPLAY
+// ==========================================
+
+function displayResults(scores, boredom) {
+    document.getElementById('assessment').classList.add('hidden');
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.classList.remove('hidden');
+
+    const riskColors = {
+        'CRITICAL': 'red',
+        'HIGH': 'orange',
+        'MODERATE': 'yellow',
+        'LOW': 'blue',
+        'NONE': 'green'
+    };
+
+    const color = riskColors[boredom.riskLevel];
+
+    resultsDiv.innerHTML = `
+        <div class="space-y-8 no-print">
+            <!-- Header -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-4">
+                    Your ATCF Assessment Results
+                </h1>
+                <p class="text-gray-600">
+                    Completed: ${new Date().toLocaleDateString()}
+                </p>
+            </div>
+
+            ${boredom.riskLevel !== 'NONE' ? `
+            <!-- Boredom Death Warning -->
+            <div class="bg-${color}-50 border-2 border-${color}-500 rounded-xl p-8">
+                <div class="flex items-start gap-4">
+                    <svg class="w-12 h-12 text-${color}-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                            Boredom Death Pattern Detected
+                        </h2>
+                        <p class="text-lg text-${color}-700">
+                            Risk Level: <strong>${boredom.riskLevel}</strong> 
+                            (Pattern Strength: ${boredom.patternStrength}%)
+                        </p>
+                        <div class="mt-4 bg-white rounded-lg p-4">
+                            <h3 class="font-semibold mb-2">What This Means:</h3>
+                            <p class="text-gray-700">
+                                Your ATCF pattern shows the signature Dr. Levin describes as "boredom death" - 
+                                when developmental goals are achieved (your past is solid) but no new 
+                                morphogenetic challenges exist (your future is unclear, your learning has stagnated).
+                            </p>
+                            <p class="text-gray-700 mt-2">
+                                This is NOT depression. This is <em>identity aging</em> - your bioelectric 
+                                pattern is degrading because you lack developmental purpose.
+                            </p>
+                            <p class="text-gray-700 mt-2 font-medium">
+                                The good news: Levin proved this is reversible through reorganization 
+                                around new challenges. Keep reading for your protocol.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ` : `
+            <!-- Low/No Risk -->
+            <div class="bg-green-50 border-2 border-green-500 rounded-xl p-8">
+                <div class="flex items-start gap-4">
+                    <svg class="w-12 h-12 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                            No Boredom Death Detected
+                        </h2>
+                        <p class="text-gray-700">
+                            Your ATCF pattern shows healthy identity coherence. You have compelling 
+                            future goals and active learning/growth. Continue what you're doing!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            `}
+
+            <!-- ATCF Scores -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Your ATCF Profile</h2>
+                
+                <div class="mb-8">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-semibold">Overall ATCF:</span>
+                        <span class="text-2xl font-bold text-indigo-600">${scores.total}/100</span>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        ${interpretATCF(scores.total)}
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    ${renderComponentScore('A', 'Autobiographical Continuity', scores.A, 
+                        'Your connection to your past and life narrative')}
+                    ${renderComponentScore('T', 'Temporal Integration', scores.T, 
+                        'Your present-moment capacity and energy')}
+                    ${renderComponentScore('C', 'Prospective Coherence', scores.C, 
+                        'Your future horizons and sense of purpose')}
+                    ${renderComponentScore('F', 'Meta-Constructive Capacity', scores.F, 
+                        'Your ability to learn, adapt, and change')}
+                </div>
+
+                <!-- Radar Chart -->
+                <div class="mt-8">
+                    <canvas id="radarChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+            ${boredom.riskLevel !== 'NONE' ? generateInterventionSection(scores, boredom) : ''}
+
+            <!-- For Class Discussion -->
+            <div class="bg-gray-50 rounded-xl border-2 border-gray-200 p-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">
+                    For Class Discussion:
+                </h2>
+                <div class="space-y-3 text-gray-700">
+                    <p><strong>1. Pattern Recognition:</strong> Do you recognize this pattern in your life? 
+                    When did it start?</p>
+                    
+                    <p><strong>2. Levin's Theory:</strong> If organisms age when developmental goals complete, 
+                    what societal goals has our generation "completed" that might be causing collective 
+                    boredom death?</p>
+                    
+                    <p><strong>3. Regeneration:</strong> What "anthrobot intervention" could you design for yourself? 
+                    What new morphogenetic challenge would reorganize your identity?</p>
+                    
+                    <p><strong>4. Institutional Application:</strong> Can you identify organizations experiencing 
+                    boredom death? What would regeneration look like?</p>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex gap-4 no-print">
+                <button onclick="window.print()" class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold">
+                    📄 Print Results for Class
+                </button>
+                <button onclick="downloadResults()" class="flex-1 px-6 py-3 border-2 border-indigo-600 text-indigo-700 rounded-lg hover:bg-indigo-50 font-semibold">
+                    💾 Download PDF
+                </button>
+                <button onclick="location.reload()" class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-semibold">
+                    🔄 Retake Assessment
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Render radar chart
+    setTimeout(() => renderRadarChart(scores), 100);
+}
+
+function renderComponentScore(component, name, score, description) {
+    const color = score >= 70 ? 'green' : score >= 55 ? 'blue' : score >= 45 ? 'yellow' : 'red';
+    const status = score >= 70 ? 'Strong' : score >= 55 ? 'Adequate' : score >= 45 ? 'At Risk' : 'Critical';
+
+    return `
+        <div>
+            <div class="flex justify-between items-center mb-2">
+                <div>
+                    <span class="font-semibold text-gray-900">${component} - ${name}</span>
+                    <p class="text-sm text-gray-600">${description}</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-2xl font-bold text-${color}-600">${score}</div>
+                    <div class="text-sm text-${color}-600">${status}</div>
+                </div>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+                <div class="bg-${color}-500 h-3 rounded-full transition-all" style="width: ${score}%"></div>
+            </div>
+        </div>
+    `;
+}
+
+function interpretATCF(score) {
+    if (score >= 75) return 'Flourishing - Strong identity coherence across all dimensions';
+    if (score >= 60) return 'Sustainable - Healthy coherence, some areas for growth';
+    if (score >= 50) return 'At-Risk - Identity coherence showing strain, intervention recommended';
+    if (score >= 40) return 'Vulnerable - Significant pattern degradation, urgent intervention needed';
+    return 'Crisis - Critical coherence breakdown, seek professional support';
+}
+
+function generateInterventionSection(scores, boredom) {
+    // Determine primary deficit
+    const lowestComponent = Object.entries(scores)
+        .filter(([k]) => k !== 'total')
+        .sort((a, b) => a[1] - b[1])[0];
+
+    const interventions = {
+        'C': {
+            title: 'Future Horizons Reconstruction',
+            description: 'Your C-score indicates collapsed future horizons. You need a new morphogenetic target - a compelling 3-5 year goal that pulls you forward.',
+            protocol: `
+                <strong>Your 6-Week Protocol:</strong>
+                <ol class="list-decimal list-inside space-y-2 mt-3">
+                    <li><strong>Week 1-2:</strong> Inventory what you CAN do vs. what you WISH you could do. Generate 10 "possible futures".</li>
+                    <li><strong>Week 3-4:</strong> Deep-dive 3 possibilities. Research what years 1, 2, 3 would look like for each.</li>
+                    <li><strong>Week 5:</strong> Select ONE as your morphogenetic target. Write "Letter from Future Self" (3 years from now, you succeeded).</li>
+                    <li><strong>Week 6:</strong> Break into quarterly milestones. Take first 3 concrete actions THIS WEEK.</li>
+                </ol>
+            `
+        },
+        'F': {
+            title: 'Neuroplasticity Activation',
+            description: 'Your F-score indicates learning stagnation. You need novel challenges that force cognitive reorganization.',
+            protocol: `
+                <strong>Your 8-Week Protocol:</strong>
+                <ol class="list-decimal list-inside space-y-2 mt-3">
+                    <li><strong>Weeks 1-8:</strong> Each week, try ONE new activity (2 hours minimum) completely outside your expertise.</li>
+                    <li>Rotate: Physical (yoga, dance), Creative (drawing, music), Intellectual (coding, philosophy), Social (new group).</li>
+                    <li>Journal after each: What surprised you? What challenged you? Did you lose track of time?</li>
+                    <li>Month 2: Pick one domain to go deeper - commit 4 hours/week for a month.</li>
+                </ol>
+            `
+        },
+        'T': {
+            title: 'Present Capacity Restoration',
+            description: 'Your T-score indicates present overwhelm. You need stress reduction before developmental challenges.',
+            protocol: `
+                <strong>Your 4-Week Protocol:</strong>
+                <ol class="list-decimal list-inside space-y-2 mt-3">
+                    <li><strong>Week 1:</strong> Identify top 3 stressors. Which can you reduce or eliminate?</li>
+                    <li><strong>Week 2:</strong> Implement ONE boundary: saying "no" to something draining you.</li>
+                    <li><strong>Week 3:</strong> Build ONE BioBond: schedule weekly time with someone who energizes you.</li>
+                    <li><strong>Week 4:</strong> Protect sleep: 7.5 hours minimum, same sleep/wake time daily.</li>
+                </ol>
+            `
+        },
+        'A': {
+            title: 'Narrative Integration',
+            description: 'Your A-score indicates disconnection from your past. You need narrative work to restore continuity.',
+            protocol: `
+                <strong>Your 4-Week Protocol:</strong>
+                <ol class="list-decimal list-inside space-y-2 mt-3">
+                    <li><strong>Week 1:</strong> Write "Life Chapters" - identify 5-7 major phases of your life.</li>
+                    <li><strong>Week 2:</strong> For each chapter, identify: What did you learn? Who did you become?</li>
+                    <li><strong>Week 3:</strong> Find the thread - what values/themes persist across all chapters?</li>
+                    <li><strong>Week 4:</strong> Write "My Story So Far" (3-5 pages). Share with one trusted person.</li>
+                </ol>
+            `
+        }
+    };
+
+    const intervention = interventions[lowestComponent[0]] || interventions['C'];
+
+    return `
+        <div class="bg-indigo-50 rounded-xl border-2 border-indigo-200 p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">
+                🎯 Your Regeneration Protocol
+            </h2>
+            
+            <div class="bg-white rounded-lg p-6 mb-6">
+                <h3 class="text-xl font-bold text-indigo-900 mb-3">
+                    ${intervention.title}
+                </h3>
+                <p class="text-gray-700 mb-4">
+                    ${intervention.description}
+                </p>
+                <div class="text-gray-700">
+                    ${intervention.protocol}
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <p class="font-semibold text-yellow-900 mb-2">The Science:</p>
+                <p class="text-yellow-800 text-sm">
+                    Levin's lab showed that adult human cells became biologically younger when 
+                    reorganized into anthrobots - activating thousands of embryonic genes normally 
+                    silent in adults. Your identity follows the same physics. New developmental 
+                    challenges restore the bioelectric pattern.
+                </p>
+            </div>
+        </div>
+    `;
+}
+
+function renderRadarChart(scores) {
+    const ctx = document.getElementById('radarChart');
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: [
+                'Autobiographical\nContinuity',
+                'Temporal\nIntegration',
+                'Prospective\nCoherence',
+                'Meta-Constructive\nCapacity'
+            ],
+            datasets: [{
+                label: 'Your ATCF Profile',
+                data: [scores.A, scores.T, scores.C, scores.F],
+                fill: true,
+                backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                borderColor: 'rgb(99, 102, 241)',
+                pointBackgroundColor: 'rgb(99, 102, 241)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(99, 102, 241)'
+            }]
+        },
+        options: {
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: { borderDash: [5, 5] },
-                        title: { display: true, text: 'Complexity Steps' }
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true
                     },
-                    x: {
-                        grid: { display: false }
-                    }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: tooltipCallback
-                    },
-                    annotation: {
-                        // Note: Requires annotation plugin, but strictly using core Chart.js here.
-                        // We simulate the threshold line visually in the data structure logic or via separate plugin if loaded.
-                        // Since external plugins aren't guaranteed, we rely on color coding (Grey vs Cyan).
+                    suggestedMin: 0,
+                    suggestedMax: 100,
+                    ticks: {
+                        stepSize: 20
                     }
                 }
-            }
-        });
-
-        // --- Chart 3: Entropy vs Agency (Line/Scatter) ---
-        const ctxEntropy = document.getElementById('entropyChart').getContext('2d');
-        new Chart(ctxEntropy, {
-            type: 'line',
-            data: {
-                labels: ['Low Stress', 'Moderate Stress', 'High Stress', 'Survival Mode'],
-                datasets: [
-                    {
-                        label: 'Agential Capacity (Logic/Ethics)',
-                        data: [95, 75, 30, 5],
-                        borderColor: '#f59e0b', // Yellow
-                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                        borderWidth: 3,
-                        tension: 0.4,
-                        fill: true
-                    },
-                    {
-                        label: 'Primate Reaction (Instinct)',
-                        data: [20, 40, 85, 98],
-                        borderColor: '#db2777', // Pink
-                        borderWidth: 2,
-                        borderDash: [5, 5],
-                        tension: 0.4,
-                        fill: false
-                    }
-                ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
-                        ticks: { color: '#9ca3af' },
-                        title: { display: true, text: 'Functional Capacity %', color: '#9ca3af' }
-                    },
-                    x: {
-                        grid: { display: false },
-                        ticks: { color: '#9ca3af' }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: { color: '#d1d5db' }
-                    },
-                    tooltip: {
-                        callbacks: tooltipCallback,
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)'
-                    }
+            plugins: {
+                legend: {
+                    display: false
                 }
             }
-        });
-    </script>
+        }
+    });
+}
+
+// ==========================================
+// DATA PERSISTENCE
+// ==========================================
+
+function saveToAggregate(data) {
+    // In real implementation, this would POST to server
+    // For demo, save to localStorage with timestamp
+    const aggregateKey = 'atcf-aggregate';
+    let aggregate = JSON.parse(localStorage.getItem(aggregateKey) || '[]');
+    
+    // Add anonymized data
+    aggregate.push({
+        timestamp: data.completedAt,
+        age: data.studentData.age,
+        major: data.studentData.major,
+        year: data.studentData.year,
+        scores: data.scores,
+        boredomRisk: data.boredomAnalysis.riskLevel,
+        willShare: data.studentData.consentShare
+    });
+    
+    localStorage.setItem(aggregateKey, JSON.stringify(aggregate));
+}
+
+function downloadResults() {
+    // In real implementation, would generate PDF
+    // For now, trigger browser print
+    window.print();
+}
+
+// ==========================================
+// CONSENT CHECKING
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const consentPersonal = document.getElementById('consent-personal');
+    const consentData = document.getElementById('consent-data');
+    const startBtn = document.getElementById('start-btn');
+
+    function checkConsent() {
+        startBtn.disabled = !(consentPersonal.checked && consentData.checked);
+    }
+
+    consentPersonal?.addEventListener('change', checkConsent);
+    consentData?.addEventListener('change', checkConsent);
+});
+</script>
+
 </body>
 </html>
