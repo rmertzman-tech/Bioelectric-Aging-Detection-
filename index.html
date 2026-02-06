@@ -1,261 +1,430 @@
-<!-- boredom-death-lab.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boredom Death Lab - Introduction to Ethics></title>
+    <title>Boredom Death Lab - CIB Thermodynamics Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @media print {
             .no-print { display: none; }
         }
+        
+        .gradient-fire {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+        }
+        
+        .gradient-ice {
+            background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+        }
+        
+        .thermodynamic-gauge {
+            position: relative;
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(to right, #ef4444, #f59e0b, #10b981);
+            border-radius: 6px;
+        }
+        
+        .gauge-pointer {
+            position: absolute;
+            top: -4px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #1f2937;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            transition: left 0.5s ease-out;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
 
 <div id="app" class="min-h-screen">
-    <!-- Landing Page -->
-    <div id="landing" class="max-w-4xl mx-auto px-4 py-12">
-        <div class="bg-white rounded-xl shadow-lg p-8">
-            <!-- Header -->
-            <div class="text-center mb-8">
-                <h1 class="text-4xl font-bold text-gray-900 mb-4">
-                    The Boredom Death Lab
+    <!-- ============================================ -->
+    <!-- LANDING PAGE -->
+    <!-- ============================================ -->
+    <div id="landing" class="max-w-5xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            
+            <!-- Header Banner -->
+            <div class="gradient-fire text-white p-8 text-center">
+                <h1 class="text-5xl font-bold mb-2">
+                    🔥 The Boredom Death Lab ❄️
                 </h1>
-                <p class="text-xl text-gray-600">
-                    Introduction to Ethics: Foundations for the Information Age
+                <p class="text-2xl font-light">
+                    CIB Thermodynamics Edition
                 </p>
-                <p class="text-lg text-gray-500 mt-2">
-                    Ethics Institute: Saint Petersburg College
+                <p class="text-xl mt-2 opacity-90">
+                    Ethics Beyond Boundaries - Chapter 21
+                </p>
+                <p class="text-lg mt-1 opacity-75">
+                    Saint Petersburg College - Prof. Bob Kendrick
                 </p>
             </div>
 
-            <!-- Introduction -->
-            <div class="prose prose-lg max-w-none mb-8">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                    Are You Experiencing Identity Aging?
-                </h2>
-                
-                <p class="text-gray-700 mb-4">
-                    Dr. Michael Levin at Tufts University discovered that organisms don't age 
-                    primarily because of DNA damage. They age when their <strong>bioelectric 
-                    patterns</strong> degrade - when they lose the informational "map" telling 
-                    cells what to maintain.
-                </p>
-
-                <p class="text-gray-700 mb-4">
-                    His most radical hypothesis: organisms age when they <strong>complete their 
-                    developmental goals</strong> and have no new challenges. He calls this 
-                    <em>"boredom death."</em>
-                </p>
-
-                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 my-6">
-                    <p class="font-semibold text-indigo-900 mb-2">The Key Insight:</p>
-                    <p class="text-indigo-800">
-                        Planarian flatworms are functionally immortal. They escape aging by 
-                        constantly tearing in half and regenerating - giving cells perpetual 
-                        developmental challenges. <strong>Purpose prevents decay.</strong>
+            <div class="p-8">
+                <!-- Introduction -->
+                <div class="prose prose-lg max-w-none mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                        The Thermodynamics of Identity Aging
+                    </h2>
+                    
+                    <p class="text-gray-700 mb-4 text-lg">
+                        Your identity is not just psychological—it's <strong>physical</strong>. 
+                        It obeys the laws of thermodynamics.
                     </p>
-                </div>
 
-                <p class="text-gray-700 mb-4">
-                    This lab applies Levin's framework to <strong>you</strong>. Your identity 
-                    is also a bioelectric pattern - what we call your <strong>ATCF</strong> 
-                    (Adaptive Temporal Coherence Function).
-                </p>
+                    <div class="grid md:grid-cols-2 gap-4 my-6">
+                        <div class="gradient-fire text-white rounded-xl p-6">
+                            <h3 class="text-2xl font-bold mb-2">🔥 FIRE</h3>
+                            <p class="text-sm">
+                                <strong>Active Inference</strong> - The metabolic work of creating 
+                                meaning. Your brain burns glucose to run simulations, update beliefs, 
+                                and change the world. This is dissipative: every thought generates heat.
+                            </p>
+                            <p class="text-xs mt-2 opacity-90">
+                                Energy Rate Density: ~150,000 erg/s/g (your brain is one of the most 
+                                energy-dense objects in the universe)
+                            </p>
+                        </div>
+                        
+                        <div class="gradient-ice text-white rounded-xl p-6">
+                            <h3 class="text-2xl font-bold mb-2">❄️ ICE</h3>
+                            <p class="text-sm">
+                                <strong>Logical Depth</strong> - The frozen work of your past. 
+                                Memories, skills, values crystallized into p-adic ultrametric 
+                                hierarchies. This is structure that resists entropy.
+                            </p>
+                            <p class="text-xs mt-2 opacity-90">
+                                Maintained by continuous metabolic flux. Stop the Fire → Ice melts.
+                            </p>
+                        </div>
+                    </div>
 
-                <p class="text-gray-700 mb-6">
-                    This 15-minute assessment will measure your identity coherence across 
-                    four dimensions and detect if you're experiencing boredom death.
-                </p>
+                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 my-6">
+                        <p class="font-semibold text-indigo-900 mb-2">Levin's Discovery:</p>
+                        <p class="text-indigo-800">
+                            Dr. Michael Levin at Tufts discovered that organisms don't age primarily 
+                            from DNA damage. They age when their <strong>bioelectric patterns</strong> 
+                            degrade—when cells lose the informational "map" telling them what to maintain.
+                        </p>
+                        <p class="text-indigo-800 mt-3">
+                            His radical hypothesis: organisms age when they <strong>complete their 
+                            developmental goals</strong> and lack new morphogenetic challenges. 
+                            He calls this <em>"boredom death."</em>
+                        </p>
+                    </div>
 
-                <h3 class="text-xl font-bold text-gray-900 mb-3">What You'll Discover:</h3>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start gap-2">
-                        <span class="text-indigo-600 font-bold">•</span>
-                        <span>Your <strong>A-score</strong> (Autobiographical Continuity): 
-                        Connection to your past</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-indigo-600 font-bold">•</span>
-                        <span>Your <strong>T-score</strong> (Temporal Integration): 
-                        Present-moment capacity</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-indigo-600 font-bold">•</span>
-                        <span>Your <strong>C-score</strong> (Prospective Coherence): 
-                        Future horizons and hope</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="text-indigo-600 font-bold">•</span>
-                        <span>Your <strong>F-score</strong> (Meta-Constructive Capacity): 
-                        Ability to learn and adapt</span>
-                    </li>
-                </ul>
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-6 my-6">
+                        <p class="font-semibold text-purple-900 mb-2">The Physics Behind It:</p>
+                        <p class="text-purple-800">
+                            Your identity is a <strong>CIB (Coherent Information Bit)</strong>—
+                            a low-entropy structure maintained by continuous metabolic work.
+                        </p>
+                        <p class="text-purple-800 mt-2">
+                            Creating meaning requires <strong>"Fire"</strong> (active inference, 
+                            energy dissipation). The result is <strong>"Ice"</strong> (logical depth, 
+                            frozen knowledge organized in hierarchical patterns).
+                        </p>
+                        <p class="text-purple-800 mt-2 font-medium">
+                            When you stop burning Fire to build new Ice (no future goals), you cannot 
+                            maintain the old Ice (past identity). <em>This is the Fourth Law of CIB 
+                            Thermodynamics:</em>
+                        </p>
+                        <p class="text-2xl font-bold text-purple-900 mt-3 text-center">
+                            "OSCILLATE OR DIE"
+                        </p>
+                    </div>
 
-                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-6">
-                    <p class="font-semibold text-yellow-900 mb-2">The Boredom Death Pattern:</p>
-                    <p class="text-yellow-800">
-                        <strong>High A</strong> (solid past, achievements) + 
-                        <strong>Low C</strong> (no compelling future) + 
-                        <strong>Low F</strong> (not growing) = 
-                        <span class="font-bold">Your identity is degrading</span>
+                    <p class="text-gray-700 mb-4">
+                        Planarian flatworms escape aging by constantly tearing in half and 
+                        regenerating—giving cells perpetual developmental work. They oscillate 
+                        between destruction (Thaw) and reconstruction (Freeze). They never experience 
+                        "goal completion."
                     </p>
+                    
+                    <p class="text-lg font-semibold text-gray-900 mb-4">
+                        Purpose prevents thermodynamic decay.
+                    </p>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3 mt-8">
+                        What This Assessment Measures:
+                    </h3>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Your <strong>ATCF</strong> (Adaptive Temporal Coherence Function)—
+                        the four dimensions of identity thermodynamics:
+                    </p>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50">
+                            <p class="font-bold text-blue-900">A - Autobiographical Continuity</p>
+                            <p class="text-sm text-blue-800">
+                                Your accumulated <strong>"Ice"</strong>—past achievements, memories, 
+                                frozen logical depth. High A = rich history, solid structure.
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4 py-2 bg-green-50">
+                            <p class="font-bold text-green-900">T - Temporal Integration</p>
+                            <p class="text-sm text-green-800">
+                                Current <strong>metabolic flux</strong>—available energy for active 
+                                inference. Low T = depleted, overwhelmed, at Sapolsky Limit.
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-orange-500 pl-4 py-2 bg-orange-50">
+                            <p class="font-bold text-orange-900">C - Prospective Coherence</p>
+                            <p class="text-sm text-orange-800">
+                                Future-directed <strong>"Fire"</strong>—new morphogenetic targets 
+                                pulling you forward. Low C = no compelling goals, Fire extinguished.
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-500 pl-4 py-2 bg-purple-50">
+                            <p class="font-bold text-purple-900">F - Meta-Constructive Capacity</p>
+                            <p class="text-sm text-purple-800">
+                                <strong>Annealing capacity</strong>—ability to Thaw (explore new 
+                                possibilities) and Freeze (consolidate learning). Low F = brittle, 
+                                stuck in local minima.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border-2 border-yellow-400 rounded-xl p-6 my-6">
+                        <p class="font-bold text-yellow-900 mb-3 text-lg">
+                            The Boredom Death Pattern (Thermodynamic Signature):
+                        </p>
+                        <div class="bg-white rounded-lg p-4 border border-yellow-300">
+                            <p class="text-yellow-800 font-medium">
+                                <span class="text-green-600 font-bold">High A</span> 
+                                (solid past, lots of Ice)
+                                <br/>
+                                <span class="text-2xl">+</span>
+                                <br/>
+                                <span class="text-red-600 font-bold">Low C</span> 
+                                (no future goals, no new Fire)
+                                <br/>
+                                <span class="text-2xl">+</span>
+                                <br/>
+                                <span class="text-red-600 font-bold">Low F</span> 
+                                (annealing stopped, can't Thaw)
+                                <br/>
+                                <span class="text-2xl">=</span>
+                                <br/>
+                                <span class="font-bold text-red-700 text-lg">
+                                    Attempting to maintain complexity without generating entropy exports
+                                </span>
+                            </p>
+                        </div>
+                        <p class="text-yellow-900 mt-4 font-semibold">
+                            This violates the <strong>Second Law of CIB Thermodynamics</strong>. 
+                            Your identity pattern is degrading.
+                        </p>
+                        <p class="text-sm text-yellow-800 mt-2">
+                            You cannot preserve high-order structure (Ice) without continuous 
+                            dissipative work (Fire). Thermodynamic impossibility.
+                        </p>
+                    </div>
+
+                    <div class="bg-gray-100 border-l-4 border-gray-500 p-6 my-6">
+                        <p class="font-semibold text-gray-900 mb-2">
+                            The Four Laws of CIB Thermodynamics:
+                        </p>
+                        <ol class="space-y-2 text-sm text-gray-700">
+                            <li><strong>First Law (Conservation):</strong> W = ΔΦ_CIB + Q. 
+                            No free meaning—every CIB has an energy cost.</li>
+                            
+                            <li><strong>Second Law (Entropy):</strong> Creating internal complexity 
+                            increases universal entropy. The "trash of thought"—smart systems make 
+                            the universe messier.</li>
+                            
+                            <li><strong>Third Law (Crystallization):</strong> As temperature → 0, 
+                            information topology → ultrametric tree. Stability requires hierarchy.</li>
+                            
+                            <li><strong>Fourth Law (Annealing):</strong> To maximize logical depth, 
+                            systems must oscillate between Thaw (exploration) and Freeze (consolidation). 
+                            <strong>Oscillate or Die.</strong></li>
+                        </ol>
+                    </div>
                 </div>
 
-                <p class="text-gray-700 mb-6">
-                    If detected, you'll receive evidence-based "anthrobot protocols" - 
-                    regenerative challenges proven to reverse the pattern.
+                <!-- Consent & Privacy -->
+                <div class="bg-gray-50 rounded-lg p-6 mb-6 border-2 border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Privacy & Data Use:</h3>
+                    <div class="space-y-3 text-sm text-gray-700">
+                        <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded">
+                            <input type="checkbox" id="consent-personal" class="mt-1">
+                            <span>I understand this assessment is for <strong>educational purposes</strong> 
+                            and does not constitute medical, psychological, or thermodynamic engineering advice.</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded">
+                            <input type="checkbox" id="consent-data" class="mt-1">
+                            <span>I consent to my <strong>anonymized</strong> results being used 
+                            for class discussion and research on CIB Thermodynamics 
+                            (your name will never be attached to your data).</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded">
+                            <input type="checkbox" id="consent-optional" class="mt-1">
+                            <span><em>Optional:</em> I'm willing to share my results with the 
+                            class during discussion to advance our collective understanding of 
+                            identity thermodynamics.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Student Info -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">
+                        Student Information (Optional):
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Providing this helps with class aggregate analysis and thermodynamic 
+                        pattern recognition across demographics. Leave blank for complete anonymity.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input 
+                            type="text" 
+                            id="student-name" 
+                            placeholder="Your name (optional)"
+                            class="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none"
+                        >
+                        <input 
+                            type="number" 
+                            id="student-age" 
+                            placeholder="Age"
+                            min="16"
+                            max="99"
+                            class="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none"
+                        >
+                        <input 
+                            type="text" 
+                            id="student-major" 
+                            placeholder="Major/Program"
+                            class="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none"
+                        >
+                        <select id="student-year" class="px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none">
+                            <option value="">Year in school</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="transfer">Transfer Student</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Start Button -->
+                <button 
+                    onclick="startAssessment()" 
+                    id="start-btn"
+                    disabled
+                    class="w-full py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-bold text-xl
+                           hover:from-orange-600 hover:to-red-600 transition-all shadow-lg
+                           disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed disabled:shadow-none"
+                >
+                    🔥 Begin Thermodynamic Assessment (15 minutes) ❄️
+                </button>
+                <p class="text-sm text-gray-500 text-center mt-2">
+                    You must consent to educational use of anonymized data to proceed
                 </p>
             </div>
-
-            <!-- Consent & Privacy -->
-            <div class="bg-gray-50 rounded-lg p-6 mb-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Privacy & Data Use:</h3>
-                <div class="space-y-2 text-sm text-gray-700">
-                    <label class="flex items-start gap-3">
-                        <input type="checkbox" id="consent-personal" class="mt-1">
-                        <span>I understand this assessment is for educational purposes and 
-                        does not constitute medical or psychological advice.</span>
-                    </label>
-                    <label class="flex items-start gap-3">
-                        <input type="checkbox" id="consent-data" class="mt-1">
-                        <span>I consent to my <strong>anonymized</strong> results being used 
-                        for class discussion and research (your name will never be attached 
-                        to your data).</span>
-                    </label>
-                    <label class="flex items-start gap-3">
-                        <input type="checkbox" id="consent-optional" class="mt-1">
-                        <span><em>Optional:</em> I'm willing to share my results with the 
-                        class during discussion.</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Student Info (Optional) -->
-            <div class="mb-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">
-                    Student Information (Optional):
-                </h3>
-                <p class="text-sm text-gray-600 mb-4">
-                    Providing this helps with class aggregate analysis. Leave blank for 
-                    complete anonymity.
-                </p>
-                <div class="grid grid-cols-2 gap-4">
-                    <input 
-                        type="text" 
-                        id="student-name" 
-                        placeholder="Your name (optional)"
-                        class="px-4 py-2 border border-gray-300 rounded-lg"
-                    >
-                    <input 
-                        type="number" 
-                        id="student-age" 
-                        placeholder="Age"
-                        class="px-4 py-2 border border-gray-300 rounded-lg"
-                    >
-                    <input 
-                        type="text" 
-                        id="student-major" 
-                        placeholder="Major/Program"
-                        class="px-4 py-2 border border-gray-300 rounded-lg"
-                    >
-                    <select id="student-year" class="px-4 py-2 border border-gray-300 rounded-lg">
-                        <option value="">Year in school</option>
-                        <option value="1">First Year</option>
-                        <option value="2">Second Year</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Start Button -->
-            <button 
-                onclick="startAssessment()" 
-                id="start-btn"
-                disabled
-                class="w-full py-4 bg-indigo-600 text-white rounded-lg font-bold text-lg
-                       hover:bg-indigo-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
-            >
-                Begin Assessment (15 minutes)
-            </button>
-            <p class="text-sm text-gray-500 text-center mt-2">
-                You must consent to the educational use of data to proceed
-            </p>
         </div>
     </div>
 
-    <!-- Assessment Questions -->
-    <div id="assessment" class="hidden max-w-3xl mx-auto px-4 py-8">
+    <!-- ============================================ -->
+    <!-- ASSESSMENT QUESTIONS -->
+    <!-- ============================================ -->
+    <div id="assessment" class="hidden max-w-4xl mx-auto px-4 py-8">
         <!-- Progress Bar -->
-        <div class="mb-8">
+        <div class="mb-8 bg-white rounded-xl shadow-lg p-6">
             <div class="flex justify-between text-sm text-gray-600 mb-2">
-                <span>Question <span id="current-q">1</span> of <span id="total-q">20</span></span>
-                <span><span id="progress-pct">0</span>% Complete</span>
+                <span>Question <span id="current-q" class="font-bold text-indigo-600">1</span> of <span id="total-q">20</span></span>
+                <span><span id="progress-pct" class="font-bold text-indigo-600">0</span>% Complete</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-3">
-                <div id="progress-bar" class="bg-indigo-600 h-3 rounded-full transition-all" style="width: 0%"></div>
+            <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                <div id="progress-bar" class="gradient-fire h-4 transition-all duration-300" style="width: 0%"></div>
             </div>
         </div>
 
         <!-- Question Card -->
-        <div class="bg-white rounded-xl shadow-lg p-8 mb-6">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 mb-6">
             <!-- Component Label -->
-            <div class="mb-4">
-                <span id="component-label" class="inline-block px-4 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold">
-                    Component Loading...
+            <div class="mb-6">
+                <span id="component-label" class="inline-block px-6 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-bold">
+                    Loading...
                 </span>
+                <p id="component-explanation" class="text-xs text-gray-600 mt-2 italic">
+                    Component explanation loading...
+                </p>
             </div>
 
             <!-- Question Text -->
-            <h2 id="question-text" class="text-2xl font-bold text-gray-900 mb-8">
+            <h2 id="question-text" class="text-3xl font-bold text-gray-900 mb-8 leading-tight">
                 Question loading...
             </h2>
 
             <!-- Likert Scale -->
             <div class="space-y-4">
-                <div class="flex justify-between text-sm text-gray-600 mb-2">
-                    <span>Strongly Disagree</span>
-                    <span>Neutral</span>
-                    <span>Strongly Agree</span>
+                <div class="flex justify-between text-sm text-gray-600 mb-3 px-2">
+                    <span class="text-left w-24">Strongly<br/>Disagree</span>
+                    <span class="text-center">Neutral</span>
+                    <span class="text-right w-24">Strongly<br/>Agree</span>
                 </div>
                 
-                <div class="flex gap-2 justify-between">
-                    <button onclick="answer(1)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                <div class="grid grid-cols-7 gap-2">
+                    <button onclick="answer(1)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         1
                     </button>
-                    <button onclick="answer(2)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                    <button onclick="answer(2)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         2
                     </button>
-                    <button onclick="answer(3)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                    <button onclick="answer(3)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         3
                     </button>
-                    <button onclick="answer(4)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                    <button onclick="answer(4)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         4
                     </button>
-                    <button onclick="answer(5)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                    <button onclick="answer(5)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         5
                     </button>
-                    <button onclick="answer(6)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                    <button onclick="answer(6)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         6
                     </button>
-                    <button onclick="answer(7)" class="likert-btn flex-1 py-4 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all font-semibold text-gray-700">
+                    <button onclick="answer(7)" class="likert-btn py-6 border-2 border-gray-300 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 hover:scale-105 transition-all font-bold text-gray-700 text-xl">
                         7
                     </button>
+                </div>
+                
+                <div class="flex justify-between text-xs text-gray-500 mt-2 px-2">
+                    <span>Low entropy<br/>(disorder)</span>
+                    <span>High entropy<br/>(order)</span>
                 </div>
             </div>
         </div>
 
-        <!-- Back Button -->
-        <button onclick="previousQuestion()" id="back-btn" class="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-            ← Previous Question
-        </button>
+        <!-- Navigation -->
+        <div class="flex justify-between">
+            <button 
+                onclick="previousQuestion()" 
+                id="back-btn" 
+                class="px-6 py-3 border-2 border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all font-semibold" 
+                disabled
+            >
+                ← Previous
+            </button>
+            <p class="text-sm text-gray-500 self-center">
+                Your responses are automatically saved
+            </p>
+        </div>
     </div>
 
-    <!-- Results Page -->
-    <div id="results" class="hidden max-w-5xl mx-auto px-4 py-8">
+    <!-- ============================================ -->
+    <!-- RESULTS PAGE -->
+    <!-- ============================================ -->
+    <div id="results" class="hidden max-w-6xl mx-auto px-4 py-8">
         <!-- Results content will be generated by JavaScript -->
     </div>
 </div>
@@ -271,31 +440,36 @@ const questions = [
         component: 'A',
         text: 'I can tell a coherent story connecting my past to my present',
         reverse: false,
-        componentName: 'Autobiographical Continuity'
+        componentName: 'Autobiographical Continuity (Ice)',
+        explanation: 'Measures frozen logical depth—accumulated memories and narrative structure'
     },
     {
         component: 'A',
-        text: 'Current values align with the person I\'ve always been',
+        text: 'My current values align with the person I\'ve always been',
         reverse: false,
-        componentName: 'Autobiographical Continuity'
+        componentName: 'Autobiographical Continuity (Ice)',
+        explanation: 'Coherence of crystallized identity structure over time'
     },
     {
         component: 'A',
         text: 'I feel disconnected from my past self',
         reverse: true,
-        componentName: 'Autobiographical Continuity'
+        componentName: 'Autobiographical Continuity (Ice)',
+        explanation: 'Indicates fracture in the p-adic hierarchical structure'
     },
     {
         component: 'A',
         text: 'My life story makes sense as a unified whole',
         reverse: false,
-        componentName: 'Autobiographical Continuity'
+        componentName: 'Autobiographical Continuity (Ice)',
+        explanation: 'Integration of autobiographical Ice into coherent CIB'
     },
     {
         component: 'A',
         text: 'Major past decisions reflect who I truly am',
         reverse: false,
-        componentName: 'Autobiographical Continuity'
+        componentName: 'Autobiographical Continuity (Ice)',
+        explanation: 'Alignment of past active inference with current identity kernel'
     },
 
     // T - Temporal Integration (5 questions)
@@ -303,31 +477,36 @@ const questions = [
         component: 'T',
         text: 'I feel overwhelmed by daily demands',
         reverse: true,
-        componentName: 'Temporal Integration (Present Capacity)'
+        componentName: 'Temporal Integration (Flux)',
+        explanation: 'Metabolic capacity—are you at the Sapolsky Limit?'
     },
     {
         component: 'T',
         text: 'I can focus clearly on complex problems',
         reverse: false,
-        componentName: 'Temporal Integration (Present Capacity)'
+        componentName: 'Temporal Integration (Flux)',
+        explanation: 'Prefrontal cortex capacity for active inference'
     },
     {
         component: 'T',
         text: 'I have enough energy for things that matter',
         reverse: false,
-        componentName: 'Temporal Integration (Present Capacity)'
+        componentName: 'Temporal Integration (Flux)',
+        explanation: 'Available free energy for CIB production'
     },
     {
         component: 'T',
         text: 'I feel mentally exhausted most of the time',
         reverse: true,
-        componentName: 'Temporal Integration (Present Capacity)'
+        componentName: 'Temporal Integration (Flux)',
+        explanation: 'Chronic energy depletion—maintenance exceeds production'
     },
     {
         component: 'T',
         text: 'I have mental bandwidth for thoughtful decisions',
         reverse: false,
-        componentName: 'Temporal Integration (Present Capacity)'
+        componentName: 'Temporal Integration (Flux)',
+        explanation: 'Computational capacity available for active inference'
     },
 
     // C - Prospective Coherence (5 questions) - KEY FOR BOREDOM DEATH
@@ -335,32 +514,37 @@ const questions = [
         component: 'C',
         text: 'I can clearly imagine myself 5-10 years from now',
         reverse: false,
-        componentName: 'Prospective Coherence (Future Horizons)'
+        componentName: 'Prospective Coherence (Fire)',
+        explanation: 'Future-directed morphogenetic targets—the pull of becoming'
     },
     {
         component: 'C',
-        text: 'I have meaningful goals for my future',
+        text: 'I have meaningful goals that pull me forward',
         reverse: false,
-        componentName: 'Prospective Coherence (Future Horizons)'
+        componentName: 'Prospective Coherence (Fire)',
+        explanation: 'Active Fire production—dissipative work toward new CIBs'
     },
     {
         component: 'C',
         text: 'My biggest achievements are behind me',
         reverse: true,
-        componentName: 'Prospective Coherence (Future Horizons)',
-        boredomWeight: 0.9  // High indicator
+        componentName: 'Prospective Coherence (Fire)',
+        explanation: 'KEY INDICATOR: Goal completion → Fire extinguished',
+        boredomWeight: 0.9
     },
     {
         component: 'C',
-        text: 'I can see a path forward toward the life I want',
+        text: 'I can see a clear path toward the life I want',
         reverse: false,
-        componentName: 'Prospective Coherence (Future Horizons)'
+        componentName: 'Prospective Coherence (Fire)',
+        explanation: 'Morphogenetic trajectory—direction of active inference'
     },
     {
         component: 'C',
         text: 'Planning for the future feels pointless or overwhelming',
         reverse: true,
-        componentName: 'Prospective Coherence (Future Horizons)',
+        componentName: 'Prospective Coherence (Fire)',
+        explanation: 'Future horizon collapse—no new developmental work',
         boredomWeight: 0.85
     },
 
@@ -369,32 +553,37 @@ const questions = [
         component: 'F',
         text: 'I can change my habits when I decide to',
         reverse: false,
-        componentName: 'Meta-Constructive Capacity (Adaptability)'
+        componentName: 'Meta-Constructive (Annealing)',
+        explanation: 'Capacity to reorganize—enter Thaw state'
     },
     {
         component: 'F',
         text: 'I learn new things easily',
         reverse: false,
-        componentName: 'Meta-Constructive Capacity (Adaptability)'
+        componentName: 'Meta-Constructive (Annealing)',
+        explanation: 'Neuroplasticity—ability to explore energy landscape'
     },
     {
         component: 'F',
         text: 'I feel stuck in patterns I cannot change',
         reverse: true,
-        componentName: 'Meta-Constructive Capacity (Adaptability)',
+        componentName: 'Meta-Constructive (Annealing)',
+        explanation: 'Trapped in local minima—annealing capacity lost',
         boredomWeight: 0.88
     },
     {
         component: 'F',
         text: 'I actively work on improving myself',
         reverse: false,
-        componentName: 'Meta-Constructive Capacity (Adaptability)'
+        componentName: 'Meta-Constructive (Annealing)',
+        explanation: 'Conscious self-modification—Fourth Law in action'
     },
     {
         component: 'F',
-        text: 'I can consciously reframe situations for new perspectives',
+        text: 'I can reframe situations to find new perspectives',
         reverse: false,
-        componentName: 'Meta-Constructive Capacity (Adaptability)'
+        componentName: 'Meta-Constructive (Annealing)',
+        explanation: 'Cognitive flexibility—escape rigid hierarchies'
     }
 ];
 
@@ -405,13 +594,13 @@ const questions = [
 let currentQuestion = 0;
 let responses = [];
 let studentData = {};
+let startTime = Date.now();
 
 // ==========================================
 // ASSESSMENT FLOW
 // ==========================================
 
 function startAssessment() {
-    // Collect student data
     studentData = {
         name: document.getElementById('student-name').value || 'Anonymous',
         age: document.getElementById('student-age').value || null,
@@ -419,14 +608,13 @@ function startAssessment() {
         year: document.getElementById('student-year').value || null,
         consentData: document.getElementById('consent-data').checked,
         consentShare: document.getElementById('consent-optional').checked,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        startTime: Date.now()
     };
 
-    // Hide landing, show assessment
     document.getElementById('landing').classList.add('hidden');
     document.getElementById('assessment').classList.remove('hidden');
-
-    // Show first question
+    
     displayQuestion();
 }
 
@@ -435,6 +623,7 @@ function displayQuestion() {
     
     document.getElementById('question-text').textContent = q.text;
     document.getElementById('component-label').textContent = q.componentName;
+    document.getElementById('component-explanation').textContent = q.explanation;
     document.getElementById('current-q').textContent = currentQuestion + 1;
     document.getElementById('total-q').textContent = questions.length;
     
@@ -442,12 +631,11 @@ function displayQuestion() {
     document.getElementById('progress-pct').textContent = Math.round(progress);
     document.getElementById('progress-bar').style.width = progress + '%';
 
-    // Enable/disable back button
     document.getElementById('back-btn').disabled = currentQuestion === 0;
 
     // Reset button styles
     document.querySelectorAll('.likert-btn').forEach(btn => {
-        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600');
+        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600', 'scale-105');
         btn.classList.add('border-gray-300', 'text-gray-700');
     });
 
@@ -455,30 +643,28 @@ function displayQuestion() {
     if (responses[currentQuestion] !== undefined) {
         const previousAnswer = responses[currentQuestion];
         const buttons = document.querySelectorAll('.likert-btn');
-        buttons[previousAnswer - 1].classList.add('bg-indigo-600', 'text-white', 'border-indigo-600');
+        buttons[previousAnswer - 1].classList.add('bg-indigo-600', 'text-white', 'border-indigo-600', 'scale-105');
         buttons[previousAnswer - 1].classList.remove('border-gray-300', 'text-gray-700');
     }
 }
 
 function answer(value) {
-    // Highlight selected button
-    document.querySelectorAll('.likert-btn').forEach(btn => {
-        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600');
+    const buttons = document.querySelectorAll('.likert-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-600', 'scale-105');
         btn.classList.add('border-gray-300', 'text-gray-700');
     });
-    event.target.classList.add('bg-indigo-600', 'text-white', 'border-indigo-600');
+    
+    event.target.classList.add('bg-indigo-600', 'text-white', 'border-indigo-600', 'scale-105');
     event.target.classList.remove('border-gray-300', 'text-gray-700');
 
-    // Record response
     responses[currentQuestion] = value;
 
-    // Auto-advance after short delay
     setTimeout(() => {
         if (currentQuestion < questions.length - 1) {
             currentQuestion++;
             displayQuestion();
         } else {
-            // Assessment complete
             calculateResults();
         }
     }, 300);
@@ -492,28 +678,21 @@ function previousQuestion() {
 }
 
 // ==========================================
-// SCORING ALGORITHM
+// SCORING & THERMODYNAMIC ANALYSIS
 // ==========================================
 
 function calculateResults() {
-    // Calculate component scores
     const componentScores = { A: [], T: [], C: [], F: [] };
 
     questions.forEach((q, idx) => {
         let rawScore = responses[idx];
-        
-        // Reverse score if needed
         if (q.reverse) {
-            rawScore = 8 - rawScore;  // 7→1, 6→2, etc.
+            rawScore = 8 - rawScore;
         }
-
-        // Normalize to 0-100 scale
         const normalized = ((rawScore - 1) / 6) * 100;
-        
         componentScores[q.component].push(normalized);
     });
 
-    // Average each component
     const scores = {
         A: Math.round(average(componentScores.A)),
         T: Math.round(average(componentScores.T)),
@@ -523,39 +702,41 @@ function calculateResults() {
 
     scores.total = Math.round((scores.A + scores.T + scores.C + scores.F) / 4);
 
-    // Detect boredom death pattern
+    // Boredom death detection
     const boredomAnalysis = detectBoredomDeath(scores, responses);
+    
+    // CIB Thermodynamic analysis
+    const thermodynamics = calculateThermodynamicHealth(scores, responses);
 
-    // Save to localStorage (so students can retrieve later)
     const resultsData = {
         studentData,
         scores,
         boredomAnalysis,
+        thermodynamics,
         responses,
-        completedAt: new Date().toISOString()
+        completedAt: new Date().toISOString(),
+        durationSeconds: Math.round((Date.now() - studentData.startTime) / 1000)
     };
     
     localStorage.setItem('atcf-results', JSON.stringify(resultsData));
 
-    // If consent given, also save to aggregate (would be server in real app)
     if (studentData.consentData) {
         saveToAggregate(resultsData);
     }
 
-    // Display results
-    displayResults(scores, boredomAnalysis);
+    displayResults(scores, boredomAnalysis, thermodynamics);
 }
 
 function detectBoredomDeath(scores, responses) {
     const indicators = [];
     let patternStrength = 0;
 
-    // Indicator 1: High A with Low C (past solid, future empty)
+    // Indicator 1: High A with Low C (Ice without Fire)
     const acGap = scores.A - scores.C;
     if (scores.A >= 65 && acGap >= 20) {
         indicators.push({
             name: 'PAST_FUTURE_DISCONNECT',
-            description: `Strong past (${scores.A}) but weak future (${scores.C})`
+            description: `High Ice (A=${scores.A}) but low Fire (C=${scores.C}). Cannot maintain complexity without ongoing work.`
         });
         patternStrength += 0.3;
     }
@@ -564,7 +745,7 @@ function detectBoredomDeath(scores, responses) {
     if (scores.C < 50) {
         indicators.push({
             name: 'FUTURE_HORIZON_COLLAPSE',
-            description: `Prospective coherence critically low (${scores.C})`
+            description: `Morphogenetic targets lost (C=${scores.C}). No future-directed active inference.`
         });
         patternStrength += 0.35;
     }
@@ -572,27 +753,24 @@ function detectBoredomDeath(scores, responses) {
     // Indicator 3: F-component stagnant
     if (scores.F < 52) {
         indicators.push({
-            name: 'NEUROPLASTICITY_DECLINE',
-            description: `Meta-constructive capacity low (${scores.F})`
+            name: 'ANNEALING_FAILURE',
+            description: `Cannot enter Thaw state (F=${scores.F}). Stuck in local minima, brittle structure.`
         });
         patternStrength += 0.25;
     }
 
-    // Indicator 4: Check high-weight boredom questions
-    // Question 12 (index 12): "My biggest achievements are behind me"
-    // Question 17 (index 17): "I feel stuck in patterns I cannot change"
-    const q12 = responses[12];
-    const q17 = responses[17];
+    // Indicator 4: Explicit boredom responses
+    const q12 = responses[12]; // "biggest achievements behind me"
+    const q17 = responses[17]; // "stuck in patterns"
     
-    if (q12 >= 5) {  // Agree that achievements are behind
+    if (q12 >= 5) {
         indicators.push({
-            name: 'EXPLICIT_PURPOSE_COMPLETION',
-            description: 'Reports major achievements already completed'
+            name: 'EXPLICIT_GOAL_COMPLETION',
+            description: 'Reports developmental goals already achieved—classic boredom death trigger.'
         });
         patternStrength += 0.10;
     }
 
-    // Determine risk level
     let riskLevel = 'NONE';
     if (patternStrength >= 0.70) riskLevel = 'CRITICAL';
     else if (patternStrength >= 0.50) riskLevel = 'HIGH';
@@ -607,6 +785,58 @@ function detectBoredomDeath(scores, responses) {
     };
 }
 
+function calculateThermodynamicHealth(scores, responses) {
+    // Fire = Future-directed active inference
+    const fire = (scores.C + scores.F) / 2;
+    
+    // Ice = Accumulated logical depth
+    const ice = scores.A;
+    
+    // Flux = Current metabolic capacity
+    const flux = scores.T;
+    
+    // Fire/Ice ratio (should be >= 0.7 for health)
+    const fireIceRatio = ice > 0 ? fire / ice : 0;
+    const ratioHealth = Math.min(fireIceRatio / 0.7, 1.0);
+    
+    // Annealing capacity
+    const annealing = scores.F / 100;
+    
+    // Thermodynamic sustainability
+    const maintenanceCost = ice * 0.6; // Need 60% of Ice in Fire to maintain
+    const productionCapacity = fire;
+    
+    let sustainability, status, warning;
+    
+    if (productionCapacity < maintenanceCost) {
+        sustainability = productionCapacity / maintenanceCost;
+        status = "UNSUSTAINABLE";
+        warning = `You need ${maintenanceCost.toFixed(0)} points of Fire to maintain ${ice} points of Ice. You only have ${productionCapacity.toFixed(0)}. Your identity is degrading.`;
+    } else {
+        sustainability = 1.0;
+        status = "SUSTAINABLE";
+        warning = null;
+    }
+    
+    // Energy Rate Density (conceptual)
+    const energyDensity = flux * (fire / 50); // Normalized estimate
+    
+    return {
+        fire: fire.toFixed(1),
+        ice: ice,
+        flux: flux,
+        fireIceRatio: fireIceRatio.toFixed(2),
+        ratioHealth: (ratioHealth * 100).toFixed(0),
+        annealing: (annealing * 100).toFixed(0),
+        sustainability: (sustainability * 100).toFixed(0),
+        energyDensity: energyDensity.toFixed(0),
+        status,
+        warning,
+        maintenanceCost: maintenanceCost.toFixed(0),
+        productionCapacity: productionCapacity.toFixed(0)
+    };
+}
+
 function average(arr) {
     return arr.reduce((a, b) => a + b, 0) / arr.length;
 }
@@ -615,7 +845,7 @@ function average(arr) {
 // RESULTS DISPLAY
 // ==========================================
 
-function displayResults(scores, boredom) {
+function displayResults(scores, boredom, thermo) {
     document.getElementById('assessment').classList.add('hidden');
     const resultsDiv = document.getElementById('results');
     resultsDiv.classList.remove('hidden');
@@ -631,267 +861,904 @@ function displayResults(scores, boredom) {
     const color = riskColors[boredom.riskLevel];
 
     resultsDiv.innerHTML = `
-        <div class="space-y-8 no-print">
+        <div class="space-y-8 mb-12">
             <!-- Header -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">
-                    Your ATCF Assessment Results
+            <div class="gradient-fire text-white rounded-2xl shadow-2xl p-8 text-center">
+                <h1 class="text-4xl font-bold mb-2">
+                    Your CIB Thermodynamic Profile
                 </h1>
-                <p class="text-gray-600">
-                    Completed: ${new Date().toLocaleDateString()}
+                <p class="text-xl opacity-90">
+                    ATCF Assessment Results
+                </p>
+                <p class="text-lg mt-2 opacity-75">
+                    Completed: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
                 </p>
             </div>
 
-            ${boredom.riskLevel !== 'NONE' ? `
-            <!-- Boredom Death Warning -->
-            <div class="bg-${color}-50 border-2 border-${color}-500 rounded-xl p-8">
-                <div class="flex items-start gap-4">
-                    <svg class="w-12 h-12 text-${color}-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                            Boredom Death Pattern Detected
-                        </h2>
-                        <p class="text-lg text-${color}-700">
-                            Risk Level: <strong>${boredom.riskLevel}</strong> 
-                            (Pattern Strength: ${boredom.patternStrength}%)
+            ${generateThermodynamicDashboard(scores, thermo, boredom)}
+
+            ${boredom.riskLevel !== 'NONE' ? generateBoredomWarning(scores, boredom, thermo, color) : generateHealthyPattern(scores, thermo)}
+
+            ${generateATCFScores(scores)}
+
+            ${generateThermodynamicScience(scores, thermo, boredom)}
+
+            ${boredom.riskLevel !== 'NONE' ? generateInterventionProtocol(scores, boredom, thermo) : ''}
+
+            ${generateClassDiscussion(scores, thermo, boredom)}
+
+            ${generateActions()}
+
+            ${generateCitation()}
+        </div>
+    `;
+
+    // Render charts after DOM update
+    setTimeout(() => {
+        renderRadarChart(scores);
+        renderThermodynamicGauge(thermo);
+    }, 100);
+}
+
+function generateThermodynamicDashboard(scores, thermo, boredom) {
+    return `
+        <div class="bg-white rounded-2xl shadow-2xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+                ⚡ Thermodynamic Health Dashboard
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <!-- Fire -->
+                <div class="gradient-fire text-white rounded-xl p-6 text-center">
+                    <div class="text-6xl font-bold mb-2">${thermo.fire}</div>
+                    <div class="text-xl font-semibold">🔥 FIRE</div>
+                    <div class="text-sm opacity-90 mt-2">Active Inference</div>
+                    <div class="text-xs opacity-75 mt-1">(C + F) / 2</div>
+                </div>
+                
+                <!-- Ice -->
+                <div class="gradient-ice text-white rounded-xl p-6 text-center">
+                    <div class="text-6xl font-bold mb-2">${thermo.ice}</div>
+                    <div class="text-xl font-semibold">❄️ ICE</div>
+                    <div class="text-sm opacity-90 mt-2">Logical Depth</div>
+                    <div class="text-xs opacity-75 mt-1">A-score</div>
+                </div>
+                
+                <!-- Flux -->
+                <div class="bg-gradient-to-br from-green-400 to-green-600 text-white rounded-xl p-6 text-center">
+                    <div class="text-6xl font-bold mb-2">${thermo.flux}</div>
+                    <div class="text-xl font-semibold">⚡ FLUX</div>
+                    <div class="text-sm opacity-90 mt-2">Metabolic Capacity</div>
+                    <div class="text-xs opacity-75 mt-1">T-score</div>
+                </div>
+            </div>
+
+            <!-- Thermodynamic Gauge -->
+            <div class="bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+                <h3 class="font-bold text-gray-900 mb-3 text-center">Fire/Ice Ratio</h3>
+                <p class="text-sm text-gray-600 text-center mb-4">
+                    Measures sustainability: Can you maintain your complexity?
+                </p>
+                <div class="thermodynamic-gauge">
+                    <div class="gauge-pointer" id="fire-ice-pointer"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                    <span>Unsustainable<br/>(Fire too low)</span>
+                    <span>Balanced</span>
+                    <span>Healthy<br/>(Active growth)</span>
+                </div>
+                <div class="text-center mt-4">
+                    <div class="text-3xl font-bold ${thermo.status === 'SUSTAINABLE' ? 'text-green-600' : 'text-red-600'}">
+                        ${thermo.fireIceRatio}
+                    </div>
+                    <div class="text-sm text-gray-600 mt-1">
+                        ${thermo.status === 'SUSTAINABLE' ? '✓ Thermodynamically Sustainable' : '⚠ Thermodynamically Unsustainable'}
+                    </div>
+                    ${thermo.warning ? `
+                        <div class="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-800">
+                            ${thermo.warning}
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="grid md:grid-cols-2 gap-4 mt-6">
+                <div class="border-2 border-gray-200 rounded-lg p-4">
+                    <div class="text-sm text-gray-600 mb-1">Annealing Capacity</div>
+                    <div class="text-2xl font-bold text-purple-600">${thermo.annealing}%</div>
+                    <div class="text-xs text-gray-500 mt-1">
+                        Ability to Thaw (explore) and Freeze (consolidate)
+                    </div>
+                </div>
+                
+                <div class="border-2 border-gray-200 rounded-lg p-4">
+                    <div class="text-sm text-gray-600 mb-1">Overall Sustainability</div>
+                    <div class="text-2xl font-bold ${thermo.sustainability >= 70 ? 'text-green-600' : 'text-red-600'}">
+                        ${thermo.sustainability}%
+                    </div>
+                    <div class="text-xs text-gray-500 mt-1">
+                        Fire production / Ice maintenance needs
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function generateBoredomWarning(scores, boredom, thermo, color) {
+    return `
+        <div class="bg-${color}-50 border-4 border-${color}-500 rounded-2xl shadow-2xl p-8">
+            <div class="flex items-start gap-6">
+                <div class="text-6xl">⚠️</div>
+                <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-3">
+                        Boredom Death Pattern Detected
+                    </h2>
+                    <div class="bg-white rounded-xl p-6 mb-4 border-2 border-${color}-300">
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <div class="text-sm text-gray-600">Risk Level</div>
+                                <div class="text-3xl font-bold text-${color}-700">${boredom.riskLevel}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-600">Pattern Strength</div>
+                                <div class="text-3xl font-bold text-${color}-700">${boredom.patternStrength}%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t-2 border-gray-200 pt-4">
+                            <h3 class="font-bold text-gray-900 mb-2">What This Means:</h3>
+                            <p class="text-gray-700 mb-3">
+                                Your ATCF pattern shows the thermodynamic signature Dr. Levin calls 
+                                "boredom death"—when developmental goals are achieved (past is solid) 
+                                but no new morphogenetic challenges exist (future is empty).
+                            </p>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4 mb-3">
+                                <p class="font-semibold text-gray-900 mb-2">The Physics:</p>
+                                <p class="text-sm text-gray-700">
+                                    You have accumulated <strong class="text-green-600">${scores.A} points of Ice</strong> 
+                                    (logical depth, memories, skills) but are only producing 
+                                    <strong class="text-${color}-600">${thermo.fire} points of Fire</strong> 
+                                    (active inference toward future goals).
+                                </p>
+                                <p class="text-sm text-gray-700 mt-2">
+                                    The Second Law of CIB Thermodynamics: You cannot maintain ${scores.A} points 
+                                    of complexity without continuous entropy export. You need at least 
+                                    ${thermo.maintenanceCost} points of Fire just for maintenance.
+                                </p>
+                                <p class="text-sm font-bold text-red-700 mt-2">
+                                    This is thermodynamically impossible. Your bioelectric pattern is degrading.
+                                </p>
+                            </div>
+
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <p class="font-semibold text-blue-900 mb-2">This is NOT:</p>
+                                <ul class="text-sm text-blue-800 space-y-1">
+                                    <li>• Depression (which shows all ATCF components low)</li>
+                                    <li>• Laziness (you've built significant complexity)</li>
+                                    <li>• Personal failure (this is physics, not character)</li>
+                                </ul>
+                                <p class="font-semibold text-blue-900 mt-3 mb-2">This IS:</p>
+                                <ul class="text-sm text-blue-800 space-y-1">
+                                    <li>• Identity aging—your "bioelectric pattern" degrading</li>
+                                    <li>• Violation of the Fourth Law (Oscillate or Die)</li>
+                                    <li>• Reversible through reorganization around new challenges</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${boredom.indicators.length > 0 ? `
+                        <div class="bg-white rounded-xl p-6 border-2 border-${color}-300">
+                            <h3 class="font-bold text-gray-900 mb-3">Primary Indicators Detected:</h3>
+                            <div class="space-y-3">
+                                ${boredom.indicators.map(ind => `
+                                    <div class="border-l-4 border-${color}-500 pl-4 py-2 bg-${color}-50">
+                                        <div class="font-semibold text-${color}-900">
+                                            ${formatIndicatorName(ind.name)}
+                                        </div>
+                                        <div class="text-sm text-${color}-800 mt-1">
+                                            ${ind.description}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function generateHealthyPattern(scores, thermo) {
+    return `
+        <div class="bg-green-50 border-4 border-green-500 rounded-2xl shadow-2xl p-8">
+            <div class="flex items-start gap-6">
+                <div class="text-6xl">✓</div>
+                <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-3">
+                        Thermodynamically Healthy Pattern
+                    </h2>
+                    <div class="bg-white rounded-xl p-6 border-2 border-green-300">
+                        <p class="text-gray-700 mb-3">
+                            Your ATCF pattern shows <strong>healthy identity coherence</strong>. 
+                            You are successfully oscillating between Fire (active inference toward 
+                            future goals) and Ice (consolidating learning into stable structure).
                         </p>
-                        <div class="mt-4 bg-white rounded-lg p-4">
-                            <h3 class="font-semibold mb-2">What This Means:</h3>
-                            <p class="text-gray-700">
-                                Your ATCF pattern shows the signature Dr. Levin describes as "boredom death" - 
-                                when developmental goals are achieved (your past is solid) but no new 
-                                morphogenetic challenges exist (your future is unclear, your learning has stagnated).
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <div class="font-semibold text-green-900 mb-2">Fire Production:</div>
+                                <div class="text-2xl font-bold text-green-700">${thermo.fire}</div>
+                                <div class="text-sm text-green-800 mt-1">
+                                    Strong future-directed active inference (C+F scores)
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <div class="font-semibold text-blue-900 mb-2">Ice Accumulation:</div>
+                                <div class="text-2xl font-bold text-blue-700">${thermo.ice}</div>
+                                <div class="text-sm text-blue-800 mt-1">
+                                    Solid logical depth (A-score) being maintained
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <p class="font-semibold text-gray-900 mb-2">The Fourth Law in Action:</p>
+                            <p class="text-sm text-gray-700">
+                                You are successfully "Oscillating" between Thaw (exploration, 
+                                challenging assumptions, F-score: ${scores.F}) and Freeze 
+                                (consolidation, stable identity, A-score: ${scores.A}).
                             </p>
-                            <p class="text-gray-700 mt-2">
-                                This is NOT depression. This is <em>identity aging</em> - your bioelectric 
-                                pattern is degrading because you lack developmental purpose.
-                            </p>
-                            <p class="text-gray-700 mt-2 font-medium">
-                                The good news: Levin proved this is reversible through reorganization 
-                                around new challenges. Keep reading for your protocol.
+                            <p class="text-sm text-gray-700 mt-2">
+                                This is optimal for maximizing logical depth over time. Continue 
+                                what you're doing—you're building complexity sustainably.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            ` : `
-            <!-- Low/No Risk -->
-            <div class="bg-green-50 border-2 border-green-500 rounded-xl p-8">
-                <div class="flex items-start gap-4">
-                    <svg class="w-12 h-12 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-2">
-                            No Boredom Death Detected
-                        </h2>
-                        <p class="text-gray-700">
-                            Your ATCF pattern shows healthy identity coherence. You have compelling 
-                            future goals and active learning/growth. Continue what you're doing!
+        </div>
+    `;
+}
+
+function generateATCFScores(scores) {
+    return `
+        <div class="bg-white rounded-2xl shadow-2xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+                Your ATCF Component Scores
+            </h2>
+            
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-xl font-semibold text-gray-700">Overall ATCF:</span>
+                    <span class="text-5xl font-bold text-indigo-600">${scores.total}</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div class="gradient-fire h-4 transition-all" style="width: ${scores.total}%"></div>
+                </div>
+                <p class="text-sm text-gray-600 text-center mt-2">
+                    ${interpretATCF(scores.total)}
+                </p>
+            </div>
+
+            <div class="space-y-6 mb-8">
+                ${renderComponentScore('A', 'Autobiographical (Ice)', scores.A, 
+                    'Frozen logical depth—your accumulated past', 'blue')}
+                ${renderComponentScore('T', 'Temporal (Flux)', scores.T, 
+                    'Current metabolic capacity—available energy', 'green')}
+                ${renderComponentScore('C', 'Prospective (Fire)', scores.C, 
+                    'Future-directed work—morphogenetic targets', 'orange')}
+                ${renderComponentScore('F', 'Meta-Constructive (Annealing)', scores.F, 
+                    'Capacity to Thaw and Freeze—adaptability', 'purple')}
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="bg-gray-50 rounded-xl p-6">
+                <h3 class="font-bold text-gray-900 mb-4 text-center">Visual Profile</h3>
+                <canvas id="radarChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    `;
+}
+
+function renderComponentScore(component, name, score, description, colorName) {
+    const color = score >= 70 ? 'green' : score >= 55 ? 'blue' : score >= 45 ? 'yellow' : 'red';
+    const status = score >= 70 ? '✓ Strong' : score >= 55 ? '○ Adequate' : score >= 45 ? '⚠ At Risk' : '🔴 Critical';
+    
+    const colorClasses = {
+        'blue': 'border-blue-500 bg-blue-50',
+        'green': 'border-green-500 bg-green-50',
+        'orange': 'border-orange-500 bg-orange-50',
+        'purple': 'border-purple-500 bg-purple-50'
+    };
+
+    return `
+        <div class="border-l-4 ${colorClasses[colorName] || 'border-gray-500 bg-gray-50'} rounded-r-lg p-5">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex-1">
+                    <span class="text-xl font-bold text-gray-900">${component} - ${name}</span>
+                    <p class="text-sm text-gray-600 mt-1">${description}</p>
+                </div>
+                <div class="text-right ml-4">
+                    <div class="text-4xl font-bold text-${color}-600">${score}</div>
+                    <div class="text-sm text-${color}-600 mt-1">${status}</div>
+                </div>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div class="bg-${color}-500 h-3 transition-all" style="width: ${score}%"></div>
+            </div>
+        </div>
+    `;
+}
+
+function generateThermodynamicScience(scores, thermo, boredom) {
+    return `
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border-2 border-indigo-200 shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span class="text-4xl">🔬</span>
+                The Thermodynamic Mechanism
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-900 mb-3">
+                        Your Identity is Physical
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        You are not "just" your thoughts. You are a <strong>dissipative structure</strong>—
+                        a localized pocket of low entropy (high organization) maintained by continuous 
+                        metabolic work.
+                    </p>
+                    <p class="text-gray-700">
+                        Your brain consumes approximately <strong>~150,000 erg/s/g</strong> (Eric Chaisson's 
+                        Energy Rate Density metric), making it one of the most <strong>energy-dense objects 
+                        in the known universe</strong>. It burns 20% of your body's energy while being only 
+                        2% of its mass.
+                    </p>
+                    <div class="mt-3 p-3 bg-indigo-50 rounded-lg text-sm text-indigo-800">
+                        💡 For comparison: Stars = ~2 erg/s/g, Human brain = ~150,000 erg/s/g. 
+                        Your consciousness requires more power density than nuclear fusion.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border-l-4 border-orange-500">
+                    <h3 class="text-xl font-bold text-orange-900 mb-3">
+                        🔥 Fire: The Metabolic Cost of Meaning
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Creating coherent identity requires <strong>"Active Inference"</strong> (Karl Friston's 
+                        Free Energy Principle). You constantly:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-3">
+                        <li><strong>Update beliefs</strong> (Perception) - change your internal model to match reality</li>
+                        <li><strong>Change the world</strong> (Action) - modify reality to match your model</li>
+                    </ul>
+                    <p class="text-gray-700 mb-3">
+                        Both pathways are <em>thermodynamic work</em>. The Landauer Principle proves: 
+                        information processing has a minimum cost of <strong>kT ln(2)</strong> per bit.
+                    </p>
+                    <p class="text-gray-700 font-medium">
+                        Every memory formed, every skill learned, every decision made generates heat (entropy export). 
+                        Your C-score (${scores.C}) measures how much future-directed Fire you're currently burning.
+                    </p>
+                    ${scores.C < 50 ? `
+                        <div class="mt-3 p-3 bg-red-50 rounded-lg text-sm text-red-800 border border-red-200">
+                            ⚠️ Your Fire production has dropped critically low. Without new morphogenetic 
+                            targets, you're not generating the entropy exports needed to maintain complexity.
+                        </div>
+                    ` : ''}
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">
+                        ❄️ Ice: Frozen Logical Depth
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        The "Ice" of your identity is <strong>Logical Depth</strong> (Charles Bennett)—
+                        the accumulated computational work of your entire life, compressed into:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 mb-3">
+                        <li>Memories (autobiographical CIBs)</li>
+                        <li>Skills (procedural CIBs)</li>
+                        <li>Values (normative CIBs)</li>
+                        <li>Relationships (social CIBs)</li>
+                    </ul>
+                    <p class="text-gray-700 mb-3">
+                        This structure is organized in <strong>p-adic ultrametric hierarchies</strong>—
+                        tree-like, nested categories (like spin glasses at low temperature). This topology 
+                        is robust to noise but requires baseline energy to maintain.
+                    </p>
+                    <p class="text-gray-700 font-medium">
+                        Your A-score (${scores.A}) measures accumulated Ice—your frozen logical depth.
+                    </p>
+                    ${scores.A > 70 && thermo.fire < 50 ? `
+                        <div class="mt-3 p-3 bg-yellow-50 rounded-lg text-sm text-yellow-800 border border-yellow-200">
+                            ⚠️ You have significant Ice (${scores.A}) but insufficient Fire (${thermo.fire}) 
+                            to maintain it. Ice melts without continuous metabolic support.
+                        </div>
+                    ` : ''}
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-900 mb-3">
+                        🔄 The Fourth Law: "Oscillate or Die"
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        To maximize logical depth over time, you must cycle between:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 mb-3">
+                        <div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                            <div class="font-bold text-orange-900 mb-2">🔥 THAW (High Temperature)</div>
+                            <ul class="text-sm text-orange-800 space-y-1">
+                                <li>• Exploration, learning</li>
+                                <li>• Challenging assumptions</li>
+                                <li>• Escaping local minima</li>
+                                <li>• Neural plasticity high</li>
+                            </ul>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <div class="font-bold text-blue-900 mb-2">❄️ FREEZE (Low Temperature)</div>
+                            <ul class="text-sm text-blue-800 space-y-1">
+                                <li>• Consolidation, integration</li>
+                                <li>• Forming stable patterns</li>
+                                <li>• Crystallizing into Ice</li>
+                                <li>• Memory consolidation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    ${scores.F < 55 ? `
+                        <div class="bg-red-50 border-2 border-red-300 rounded-lg p-4">
+                            <p class="font-bold text-red-900 mb-2">⚠️ ETERNAL FREEZE = BOREDOM DEATH</p>
+                            <p class="text-sm text-red-800">
+                                Your F-score (${scores.F}) indicates you've lost the ability to Thaw—
+                                you're stuck in frozen patterns. The Ice cannot be maintained without 
+                                periodic Fire of reorganization. <strong>Degradation is thermodynamically 
+                                inevitable.</strong>
+                            </p>
+                        </div>
+                    ` : `
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <p class="text-sm text-green-800">
+                                ✓ Your F-score (${scores.F}) shows healthy annealing capacity. You can 
+                                still oscillate between Thaw and Freeze as needed.
+                            </p>
+                        </div>
+                    `}
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border-l-4 border-purple-500">
+                    <h3 class="text-xl font-bold text-purple-900 mb-3">
+                        🧬 Levin's Discovery: Cellular Proof
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Dr. Michael Levin at Tufts showed this at the cellular level: <strong>bioelectric 
+                        patterns</strong> (the "software" telling cells what to build) degrade when developmental 
+                        goals complete.
+                    </p>
+                    <p class="text-gray-700 mb-3">
+                        In computational simulations, virtual organisms that completed their body plan with 
+                        <strong>no new goals</strong> experienced pattern deterioration <em>even without 
+                        external damage</em>. Pure thermodynamic drift from lack of morphogenetic purpose.
+                    </p>
+                    <div class="bg-purple-50 rounded-lg p-4 mb-3">
+                        <p class="font-semibold text-purple-900 mb-2">The Planarian Exception:</p>
+                        <p class="text-sm text-purple-800">
+                            Planarian flatworms are functionally immortal. They escape aging by constantly 
+                            tearing in half and regenerating (forced Thaw-Freeze cycles). They never experience 
+                            "boredom" from goal completion.
+                        </p>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <p class="font-semibold text-purple-900 mb-2">Anthrobots - Direct Evidence:</p>
+                        <p class="text-sm text-purple-800">
+                            Levin's team created "anthrobots"—adult human cells reorganized into novel tasks. 
+                            Gene expression analysis showed these cells <strong>became biologically younger</strong>—
+                            activating thousands of embryonic genes normally silent in adults.
+                        </p>
+                        <p class="text-sm text-purple-800 mt-2 font-medium">
+                            Reorganization around new developmental challenges reversed cellular aging. 
+                            Your identity follows identical physics.
                         </p>
                     </div>
                 </div>
-            </div>
-            `}
 
-            <!-- ATCF Scores -->
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Your ATCF Profile</h2>
-                
-                <div class="mb-8">
-                    <div class="flex justify-between mb-2">
-                        <span class="font-semibold">Overall ATCF:</span>
-                        <span class="text-2xl font-bold text-indigo-600">${scores.total}/100</span>
+                ${boredom.riskLevel !== 'NONE' ? `
+                    <div class="bg-gradient-to-r from-yellow-50 to-red-50 rounded-xl p-6 border-2 border-yellow-400">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">
+                            Why Your Pattern Shows Boredom Death:
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            You have accumulated significant Ice (A-score: <strong>${scores.A}</strong>)—
+                            a rich past, deep logical depth. But your Fire has diminished:
+                        </p>
+                        <ul class="space-y-2 mb-4">
+                            <li class="text-gray-700">
+                                <strong class="text-red-600">C-score: ${scores.C}</strong> - 
+                                Future horizons collapsed. No new morphogenetic targets consuming metabolic flux.
+                            </li>
+                            <li class="text-gray-700">
+                                <strong class="text-red-600">F-score: ${scores.F}</strong> - 
+                                Annealing capacity degraded. Unable to enter Thaw state for exploration.
+                            </li>
+                        </ul>
+                        <div class="bg-white rounded-lg p-4 border-2 border-red-300">
+                            <p class="font-bold text-red-900 mb-2">The Thermodynamic Reality:</p>
+                            <p class="text-sm text-red-800">
+                                You cannot maintain <strong>${scores.A} points of logical depth</strong> (high A) 
+                                without continuous active inference generating new CIBs (requires high C + high F).
+                            </p>
+                            <p class="text-sm text-red-800 mt-2">
+                                Attempting to preserve complexity without producing entropy exports violates 
+                                the Second Law. <strong>This is not metaphor. This is physics.</strong>
+                            </p>
+                            <p class="text-sm font-bold text-red-900 mt-3">
+                                Your identity is degrading because the metabolic engine has no work to do.
+                            </p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-600">
-                        ${interpretATCF(scores.total)}
-                    </p>
-                </div>
-
-                <div class="space-y-6">
-                    ${renderComponentScore('A', 'Autobiographical Continuity', scores.A, 
-                        'Your connection to your past and life narrative')}
-                    ${renderComponentScore('T', 'Temporal Integration', scores.T, 
-                        'Your present-moment capacity and energy')}
-                    ${renderComponentScore('C', 'Prospective Coherence', scores.C, 
-                        'Your future horizons and sense of purpose')}
-                    ${renderComponentScore('F', 'Meta-Constructive Capacity', scores.F, 
-                        'Your ability to learn, adapt, and change')}
-                </div>
-
-                <!-- Radar Chart -->
-                <div class="mt-8">
-                    <canvas id="radarChart" width="400" height="400"></canvas>
-                </div>
-            </div>
-
-            ${boredom.riskLevel !== 'NONE' ? generateInterventionSection(scores, boredom) : ''}
-
-            <!-- For Class Discussion -->
-            <div class="bg-gray-50 rounded-xl border-2 border-gray-200 p-8">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">
-                    For Class Discussion:
-                </h2>
-                <div class="space-y-3 text-gray-700">
-                    <p><strong>1. Pattern Recognition:</strong> Do you recognize this pattern in your life? 
-                    When did it start?</p>
-                    
-                    <p><strong>2. Levin's Theory:</strong> If organisms age when developmental goals complete, 
-                    what societal goals has our generation "completed" that might be causing collective 
-                    boredom death?</p>
-                    
-                    <p><strong>3. Regeneration:</strong> What "anthrobot intervention" could you design for yourself? 
-                    What new morphogenetic challenge would reorganize your identity?</p>
-                    
-                    <p><strong>4. Institutional Application:</strong> Can you identify organizations experiencing 
-                    boredom death? What would regeneration look like?</p>
-                </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="flex gap-4 no-print">
-                <button onclick="window.print()" class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold">
-                    📄 Print Results for Class
-                </button>
-                <button onclick="downloadResults()" class="flex-1 px-6 py-3 border-2 border-indigo-600 text-indigo-700 rounded-lg hover:bg-indigo-50 font-semibold">
-                    💾 Download PDF
-                </button>
-                <button onclick="location.reload()" class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-semibold">
-                    🔄 Retake Assessment
-                </button>
-            </div>
-        </div>
-    `;
-
-    // Render radar chart
-    setTimeout(() => renderRadarChart(scores), 100);
-}
-
-function renderComponentScore(component, name, score, description) {
-    const color = score >= 70 ? 'green' : score >= 55 ? 'blue' : score >= 45 ? 'yellow' : 'red';
-    const status = score >= 70 ? 'Strong' : score >= 55 ? 'Adequate' : score >= 45 ? 'At Risk' : 'Critical';
-
-    return `
-        <div>
-            <div class="flex justify-between items-center mb-2">
-                <div>
-                    <span class="font-semibold text-gray-900">${component} - ${name}</span>
-                    <p class="text-sm text-gray-600">${description}</p>
-                </div>
-                <div class="text-right">
-                    <div class="text-2xl font-bold text-${color}-600">${score}</div>
-                    <div class="text-sm text-${color}-600">${status}</div>
-                </div>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-3">
-                <div class="bg-${color}-500 h-3 rounded-full transition-all" style="width: ${score}%"></div>
+                ` : ''}
             </div>
         </div>
     `;
 }
 
-function interpretATCF(score) {
-    if (score >= 75) return 'Flourishing - Strong identity coherence across all dimensions';
-    if (score >= 60) return 'Sustainable - Healthy coherence, some areas for growth';
-    if (score >= 50) return 'At-Risk - Identity coherence showing strain, intervention recommended';
-    if (score >= 40) return 'Vulnerable - Significant pattern degradation, urgent intervention needed';
-    return 'Crisis - Critical coherence breakdown, seek professional support';
-}
-
-function generateInterventionSection(scores, boredom) {
-    // Determine primary deficit
-    const lowestComponent = Object.entries(scores)
-        .filter(([k]) => k !== 'total')
-        .sort((a, b) => a[1] - b[1])[0];
-
-    const interventions = {
-        'C': {
-            title: 'Future Horizons Reconstruction',
-            description: 'Your C-score indicates collapsed future horizons. You need a new morphogenetic target - a compelling 3-5 year goal that pulls you forward.',
+function generateInterventionProtocol(scores, boredom, thermo) {
+    // Determine weakest area
+    let primaryDeficit, intervention;
+    
+    if (scores.C < scores.F) {
+        primaryDeficit = 'C';
+        intervention = {
+            title: '🎯 Future Horizons Reconstruction Protocol',
+            description: `Your C-score (${scores.C}) indicates collapsed future horizons. You need a new morphogenetic target—a compelling 3-5 year goal that pulls you forward and generates metabolic Fire.`,
+            rationale: `
+                <strong>The Thermodynamic Problem:</strong><br/>
+                You're trying to maintain ${scores.A} points of Ice with only ${thermo.fire} points of Fire. 
+                This requires ${thermo.maintenanceCost} points minimum—you're ${(thermo.maintenanceCost - thermo.fire).toFixed(0)} points short.
+                <br/><br/>
+                <strong>The Physics:</strong><br/>
+                Without future-directed active inference (C-component), you generate no new entropy exports. 
+                Your system is attempting perpetual Ice maintenance without Fire production. The Second Law 
+                makes this impossible—degradation is thermodynamically guaranteed.
+                <br/><br/>
+                <strong>The Solution:</strong><br/>
+                You must restart Fire production by identifying genuinely challenging morphogenetic targets. 
+                Not "bucket list" items. Not optimization. <em>Reorganization</em> around developmental challenges 
+                that require you to become different.
+            `,
             protocol: `
-                <strong>Your 6-Week Protocol:</strong>
-                <ol class="list-decimal list-inside space-y-2 mt-3">
-                    <li><strong>Week 1-2:</strong> Inventory what you CAN do vs. what you WISH you could do. Generate 10 "possible futures".</li>
-                    <li><strong>Week 3-4:</strong> Deep-dive 3 possibilities. Research what years 1, 2, 3 would look like for each.</li>
-                    <li><strong>Week 5:</strong> Select ONE as your morphogenetic target. Write "Letter from Future Self" (3 years from now, you succeeded).</li>
-                    <li><strong>Week 6:</strong> Break into quarterly milestones. Take first 3 concrete actions THIS WEEK.</li>
+                <ol class="list-decimal list-inside space-y-3 mt-4">
+                    <li class="font-semibold">Week 1-2: Capacity Inventory
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>List 20 things you CAN do (skills, knowledge, resources)</li>
+                            <li>List 20 things you CANNOT do but wish you could</li>
+                            <li>List 10 problems you care about solving</li>
+                            <li>Interview 5 people: "What do you think I should build/become?"</li>
+                        </ul>
+                    </li>
+                    <li class="font-semibold">Week 3-4: Possibility Space Mapping
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>For each "cannot but wish" item: Is this learnable in 1-3 years?</li>
+                            <li>For each problem: Could I contribute to solving this?</li>
+                            <li>Generate 15 "possible futures" (specific roles/projects/identities)</li>
+                            <li>Eliminate 10 that don't genuinely challenge you</li>
+                        </ul>
+                    </li>
+                    <li class="font-semibold">Week 5-6: Target Selection
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>Deep dive remaining 5 possibilities (spend 4 hours on each)</li>
+                            <li>For each: What would year 1, 2, 3 look like?</li>
+                            <li>Select ONE as primary morphogenetic target</li>
+                            <li>Write "Letter from Future Self" (3 years from now, you succeeded)</li>
+                        </ul>
+                    </li>
+                    <li class="font-semibold">Week 7-8: Fire Ignition
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>Break 3-year goal into quarterly milestones</li>
+                            <li>Identify first 3 concrete actions</li>
+                            <li>Schedule weekly "morphogenesis time" (2-4 hours dedicated)</li>
+                            <li>Find accountability partner or join cohort</li>
+                            <li><strong>Take first action THIS WEEK</strong></li>
+                        </ul>
+                    </li>
                 </ol>
-            `
-        },
-        'F': {
-            title: 'Neuroplasticity Activation',
-            description: 'Your F-score indicates learning stagnation. You need novel challenges that force cognitive reorganization.',
+            `,
+            expectedChanges: {
+                'A': 0,
+                'T': '+3-5',
+                'C': '+10-15',
+                'F': '+4-6'
+            }
+        };
+    } else {
+        primaryDeficit = 'F';
+        intervention = {
+            title: '🔄 Neuroplasticity Activation Protocol (Annealing Restart)',
+            description: `Your F-score (${scores.F}) indicates annealing failure. You've lost the ability to enter Thaw state—stuck in local minima, rigid patterns. You need forced reorganization through novel challenges.`,
+            rationale: `
+                <strong>The Thermodynamic Problem:</strong><br/>
+                Your system is in Eternal Freeze. You have Ice (A=${scores.A}) but cannot Thaw for exploration 
+                and reorganization. This violates the Fourth Law: "Oscillate or Die."
+                <br/><br/>
+                <strong>The Physics:</strong><br/>
+                At low temperature (low F-score), information topology crystallizes into rigid ultrametric 
+                hierarchies. You become "brittle"—unable to adapt when the environment changes. The Ice 
+                fractures instead of reorganizing.
+                <br/><br/>
+                <strong>The Solution:</strong><br/>
+                Force temperature increase through radical novelty exposure. Deliberately enter domains where 
+                you're a beginner. This increases neural entropy (5HT2A-mediated plasticity), allowing you 
+                to escape frozen patterns and explore new attractors in the energy landscape.
+            `,
             protocol: `
-                <strong>Your 8-Week Protocol:</strong>
-                <ol class="list-decimal list-inside space-y-2 mt-3">
-                    <li><strong>Weeks 1-8:</strong> Each week, try ONE new activity (2 hours minimum) completely outside your expertise.</li>
-                    <li>Rotate: Physical (yoga, dance), Creative (drawing, music), Intellectual (coding, philosophy), Social (new group).</li>
-                    <li>Journal after each: What surprised you? What challenged you? Did you lose track of time?</li>
-                    <li>Month 2: Pick one domain to go deeper - commit 4 hours/week for a month.</li>
+                <ol class="list-decimal list-inside space-y-3 mt-4">
+                    <li class="font-semibold">Weeks 1-8: Systematic Novelty Exposure
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>Each week: Try ONE radically new activity (2+ hours)</li>
+                            <li>Rotate categories: Physical (dance, martial arts), Creative (music, art), 
+                            Intellectual (coding, philosophy), Social (new community)</li>
+                            <li>Rule: Must be something you've never done and feel uncomfortable attempting</li>
+                            <li>Journal after each: What surprised me? What challenged my assumptions?</li>
+                        </ul>
+                    </li>
+                    <li class="font-semibold">Weeks 9-12: Deep Dive Selection
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>Review 8 activities: Which made you lose track of time?</li>
+                            <li>Pick ONE to go deeper for entire month</li>
+                            <li>Commit 4-6 hours/week for sustained practice</li>
+                            <li>Find teacher/mentor in this domain</li>
+                        </ul>
+                    </li>
+                    <li class="font-semibold">Expected Outcome:
+                        <ul class="list-disc list-inside ml-6 mt-2 text-sm font-normal space-y-1">
+                            <li>Restored capacity to feel like a "beginner" (critical for Thaw)</li>
+                            <li>Increased neuroplasticity markers (subjective sense of "aliveness")</li>
+                            <li>New neural pathways formed (measured by C and F score increases)</li>
+                            <li>Ability to re-enter Thaw state when needed</li>
+                        </ul>
+                    </li>
                 </ol>
-            `
-        },
-        'T': {
-            title: 'Present Capacity Restoration',
-            description: 'Your T-score indicates present overwhelm. You need stress reduction before developmental challenges.',
-            protocol: `
-                <strong>Your 4-Week Protocol:</strong>
-                <ol class="list-decimal list-inside space-y-2 mt-3">
-                    <li><strong>Week 1:</strong> Identify top 3 stressors. Which can you reduce or eliminate?</li>
-                    <li><strong>Week 2:</strong> Implement ONE boundary: saying "no" to something draining you.</li>
-                    <li><strong>Week 3:</strong> Build ONE BioBond: schedule weekly time with someone who energizes you.</li>
-                    <li><strong>Week 4:</strong> Protect sleep: 7.5 hours minimum, same sleep/wake time daily.</li>
-                </ol>
-            `
-        },
-        'A': {
-            title: 'Narrative Integration',
-            description: 'Your A-score indicates disconnection from your past. You need narrative work to restore continuity.',
-            protocol: `
-                <strong>Your 4-Week Protocol:</strong>
-                <ol class="list-decimal list-inside space-y-2 mt-3">
-                    <li><strong>Week 1:</strong> Write "Life Chapters" - identify 5-7 major phases of your life.</li>
-                    <li><strong>Week 2:</strong> For each chapter, identify: What did you learn? Who did you become?</li>
-                    <li><strong>Week 3:</strong> Find the thread - what values/themes persist across all chapters?</li>
-                    <li><strong>Week 4:</strong> Write "My Story So Far" (3-5 pages). Share with one trusted person.</li>
-                </ol>
-            `
-        }
-    };
-
-    const intervention = interventions[lowestComponent[0]] || interventions['C'];
+            `,
+            expectedChanges: {
+                'A': '+2-3',
+                'T': '+2-4',
+                'C': '+4-6',
+                'F': '+8-12'
+            }
+        };
+    }
 
     return `
-        <div class="bg-indigo-50 rounded-xl border-2 border-indigo-200 p-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">
-                🎯 Your Regeneration Protocol
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border-2 border-green-400 shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span class="text-4xl">⚡</span>
+                Your Regeneration Protocol
             </h2>
             
-            <div class="bg-white rounded-lg p-6 mb-6">
-                <h3 class="text-xl font-bold text-indigo-900 mb-3">
+            <div class="bg-white rounded-xl p-6 mb-6 border-2 border-green-300">
+                <h3 class="text-2xl font-bold text-green-900 mb-3">
                     ${intervention.title}
                 </h3>
                 <p class="text-gray-700 mb-4">
                     ${intervention.description}
                 </p>
-                <div class="text-gray-700">
-                    ${intervention.protocol}
+                
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-5 mb-4">
+                    <h4 class="font-bold text-indigo-900 mb-3">Why This Works (The Physics):</h4>
+                    <div class="text-sm text-indigo-800 space-y-2">
+                        ${intervention.rationale}
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-5">
+                    <h4 class="font-bold text-gray-900 mb-3">Your ${primaryDeficit === 'C' ? '8' : '12'}-Week Protocol:</h4>
+                    <div class="text-gray-700">
+                        ${intervention.protocol}
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-green-50 border border-green-300 rounded-lg p-5">
+                    <h4 class="font-bold text-green-900 mb-3">Expected ATCF Changes:</h4>
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        ${Object.entries(intervention.expectedChanges).map(([comp, change]) => `
+                            <div>
+                                <div class="text-sm text-gray-600">${comp}-score</div>
+                                <div class="text-2xl font-bold ${change.startsWith('+') && parseInt(change) > 5 ? 'text-green-600' : 'text-gray-600'}">
+                                    ${change}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <p class="text-sm text-green-800 mt-4 text-center italic">
+                        These predictions are based on Levin's anthrobot research and CIB thermodynamic modeling
+                    </p>
                 </div>
             </div>
 
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                <p class="font-semibold text-yellow-900 mb-2">The Science:</p>
-                <p class="text-yellow-800 text-sm">
-                    Levin's lab showed that adult human cells became biologically younger when 
-                    reorganized into anthrobots - activating thousands of embryonic genes normally 
-                    silent in adults. Your identity follows the same physics. New developmental 
-                    challenges restore the bioelectric pattern.
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5">
+                <p class="font-semibold text-yellow-900 mb-2">⚠️ Critical Implementation Note:</p>
+                <p class="text-sm text-yellow-800">
+                    This protocol will feel uncomfortable. That discomfort is the "heat" of Thaw—your rigid 
+                    patterns melting to allow reorganization. If it feels easy or comfortable, you're not 
+                    generating enough thermodynamic work. The goal is not comfort; the goal is <em>reorganization</em>.
                 </p>
             </div>
         </div>
     `;
+}
+
+function generateClassDiscussion(scores, thermo, boredom) {
+    return `
+        <div class="bg-gray-50 rounded-2xl border-2 border-gray-300 shadow-xl p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                📚 For Class Discussion (CIB Thermodynamics Lens)
+            </h2>
+            
+            <div class="space-y-5">
+                <div class="border-l-4 border-indigo-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        1. The Energy Budget of Identity:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        Your brain consumes ~20W (150,000 erg/s/g). If your C-score is ${scores.C}, 
+                        where is this energy going? What are you <em>maintaining</em> vs. <em>creating</em>? 
+                        Can you quantify the "metabolic cost" of your current identity? What would happen 
+                        if you had to reduce your energy budget by 30%?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-orange-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        2. Societal Fire and Ice:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        Our society has accumulated massive "Ice" (infrastructure, institutions, knowledge). 
+                        But if collective C-scores are collapsing (youth report no compelling future), 
+                        can we maintain this complexity? What is the "Smil Limit" for social coherence—
+                        the point where entropy dissipation capacity cannot support accumulated logical depth?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-blue-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        3. The Fourth Law at Scale:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        "Oscillate or Die." Societies need Thaw (revolutions, reforms, new challenges) 
+                        and Freeze (institutions, laws, stability). Are we stuck in Eternal Freeze 
+                        (bureaucratic rigidity) or Eternal Thaw (constant disruption, no memory)? 
+                        What would healthy societal annealing look like?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-purple-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        4. AI as Thermodynamic Accelerant:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        AI can run active inference cycles millions of times faster than humans. This means 
+                        exponentially more Fire → exponentially more Ice (CIB production). But the Second 
+                        Law still holds: more complexity = more waste heat. Can Earth's biosphere absorb 
+                        the entropy exports of superintelligent CIB production? What's the thermodynamic 
+                        ceiling for artificial intelligence?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-red-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        5. Personal Entropy Accounting:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        If Landauer Principle is correct (kT ln 2 per bit erased), you generate measurable 
+                        heat with every thought. Your Fire/Ice ratio is ${thermo.fireIceRatio}. Could we 
+                        design "Entropy Budgets" for individuals or organizations? What would it mean to 
+                        "live within your thermodynamic means"? Is sustainability fundamentally a 
+                        thermodynamic constraint?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-green-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        6. The Ethics of Annealing:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        Neural annealing requires psychedelics (5HT2A agonists), trauma, or deep practice 
+                        to induce Thaw. Is there an ethical obligation to periodically "melt" your identity 
+                        to prevent boredom death? Or is stability a valid choice even if it means eventual 
+                        thermodynamic degradation? Do we have a duty to oscillate?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-yellow-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        7. Constructor Theory Bridge:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        In Constructor Theory (Marletto/Deutsch), a "constructor" enables transformations 
+                        without changing itself. Is your Identity Kernel a constructor? If so, boredom 
+                        death means the constructor is degrading—it can no longer enable new transformations. 
+                        How do we build "eternal constructors" at the identity level? Is thermodynamic 
+                        immortality possible?
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-pink-500 bg-white rounded-r-lg p-5">
+                    <p class="font-semibold text-gray-900 mb-2">
+                        8. Measurement Problem:
+                    </p>
+                    <p class="text-sm text-gray-700">
+                        This assessment measured your ATCF at a single point in time. But according to 
+                        QBism (Quantum Bayesianism), measurement is "participatory"—the act of assessment 
+                        changes what's being measured. Did taking this test alter your thermodynamic state? 
+                        Can we ever objectively measure identity without changing it? What are the limits 
+                        of self-knowledge?
+                    </p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function generateActions() {
+    return `
+        <div class="grid md:grid-cols-3 gap-4 no-print">
+            <button onclick="window.print()" class="px-6 py-4 gradient-fire text-white rounded-xl hover:opacity-90 transition-all shadow-lg font-semibold text-lg">
+                📄 Print for Class Discussion
+            </button>
+            <button onclick="downloadJSON()" class="px-6 py-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-all shadow-lg font-semibold text-lg">
+                💾 Download Data (JSON)
+            </button>
+            <button onclick="location.reload()" class="px-6 py-4 border-2 border-gray-400 text-gray-700 rounded-xl hover:bg-gray-100 transition-all font-semibold text-lg">
+                🔄 Retake Assessment
+            </button>
+        </div>
+    `;
+}
+
+function generateCitation() {
+    return `
+        <div class="bg-gray-100 border-t-2 border-gray-300 rounded-xl p-6 text-sm text-gray-600">
+            <p class="font-semibold text-gray-800 mb-2">Scientific Foundation:</p>
+            <p class="mb-3">
+                This analysis integrates multiple frameworks:
+            </p>
+            <ul class="space-y-1 ml-4 mb-3">
+                <li><strong>• CIB Thermodynamics:</strong> Bob Kendrick (2024-2025), synthesizing 
+                dissipative dynamics, active inference, and structural persistence</li>
+                <li><strong>• Bioelectric Aging:</strong> Léo Pio-Lopez & Michael Levin, "Aging as 
+                loss of morphostatic information" (Ageing Research Reviews, 2024)</li>
+                <li><strong>• Free Energy Principle:</strong> Karl Friston, active inference framework</li>
+                <li><strong>• Logical Depth:</strong> Charles Bennett, IBM (computational complexity)</li>
+                <li><strong>• Energy Rate Density:</strong> Eric Chaisson, Harvard-Smithsonian</li>
+                <li><strong>• p-adic Ultrametricity:</strong> Spin glass theory (Parisi, et al.)</li>
+                <li><strong>• Participatory Realism:</strong> QBism (Fuchs, Mermin, Schack)</li>
+            </ul>
+            <p class="text-xs italic">
+                For the complete theoretical framework, see: "The Laws of CIB Thermodynamics: A Synthesis 
+                of Dissipative Dynamics, Active Inference, and Structural Persistence" (Kendrick, 2025)
+            </p>
+        </div>
+    `;
+}
+
+// Helper functions
+
+function interpretATCF(score) {
+    if (score >= 75) return 'Flourishing - Strong identity coherence across all dimensions';
+    if (score >= 60) return 'Sustainable - Healthy coherence with room for growth';
+    if (score >= 50) return 'At-Risk - Identity coherence under strain, intervention beneficial';
+    if (score >= 40) return 'Vulnerable - Significant pattern degradation, urgent intervention needed';
+    return 'Crisis - Critical coherence breakdown, seek professional support immediately';
+}
+
+function formatIndicatorName(indicator) {
+    return indicator.replace(/_/g, ' ').toLowerCase()
+        .replace(/\b\w/g, l => l.toUpperCase());
 }
 
 function renderRadarChart(scores) {
@@ -902,10 +1769,10 @@ function renderRadarChart(scores) {
         type: 'radar',
         data: {
             labels: [
-                'Autobiographical\nContinuity',
-                'Temporal\nIntegration',
-                'Prospective\nCoherence',
-                'Meta-Constructive\nCapacity'
+                'Autobiographical\n(Ice)',
+                'Temporal\n(Flux)',
+                'Prospective\n(Fire)',
+                'Meta-Constructive\n(Annealing)'
             ],
             datasets: [{
                 label: 'Your ATCF Profile',
@@ -916,7 +1783,9 @@ function renderRadarChart(scores) {
                 pointBackgroundColor: 'rgb(99, 102, 241)',
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(99, 102, 241)'
+                pointHoverBorderColor: 'rgb(99, 102, 241)',
+                pointRadius: 6,
+                pointHoverRadius: 8
             }]
         },
         options: {
@@ -928,12 +1797,17 @@ function renderRadarChart(scores) {
             scales: {
                 r: {
                     angleLines: {
-                        display: true
+                        display: true,
+                        color: 'rgba(0, 0, 0, 0.1)'
                     },
                     suggestedMin: 0,
                     suggestedMax: 100,
                     ticks: {
-                        stepSize: 20
+                        stepSize: 20,
+                        backdropColor: 'transparent'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)'
                     }
                 }
             },
@@ -946,23 +1820,45 @@ function renderRadarChart(scores) {
     });
 }
 
-// ==========================================
-// DATA PERSISTENCE
-// ==========================================
+function renderThermodynamicGauge(thermo) {
+    const pointer = document.getElementById('fire-ice-pointer');
+    if (!pointer) return;
+    
+    // Convert ratio to percentage position (0-100)
+    // Ratio of 0.0 = 0% (left, red)
+    // Ratio of 0.7 = 50% (middle, yellow)
+    // Ratio of 1.4+ = 100% (right, green)
+    
+    const ratio = parseFloat(thermo.fireIceRatio);
+    let position;
+    
+    if (ratio < 0.7) {
+        position = (ratio / 0.7) * 50; // 0-50%
+    } else {
+        position = 50 + ((ratio - 0.7) / 0.7) * 50; // 50-100%
+    }
+    
+    position = Math.min(Math.max(position, 0), 100); // Clamp 0-100
+    
+    pointer.style.left = position + '%';
+}
 
 function saveToAggregate(data) {
-    // In real implementation, this would POST to server
-    // For demo, save to localStorage with timestamp
     const aggregateKey = 'atcf-aggregate';
     let aggregate = JSON.parse(localStorage.getItem(aggregateKey) || '[]');
     
-    // Add anonymized data
     aggregate.push({
         timestamp: data.completedAt,
         age: data.studentData.age,
         major: data.studentData.major,
         year: data.studentData.year,
         scores: data.scores,
+        thermodynamics: {
+            fire: data.thermodynamics.fire,
+            ice: data.thermodynamics.ice,
+            ratio: data.thermodynamics.fireIceRatio,
+            status: data.thermodynamics.status
+        },
         boredomRisk: data.boredomAnalysis.riskLevel,
         willShare: data.studentData.consentShare
     });
@@ -970,23 +1866,29 @@ function saveToAggregate(data) {
     localStorage.setItem(aggregateKey, JSON.stringify(aggregate));
 }
 
-function downloadResults() {
-    // In real implementation, would generate PDF
-    // For now, trigger browser print
-    window.print();
+function downloadJSON() {
+    const data = localStorage.getItem('atcf-results');
+    if (!data) return;
+    
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `atcf-results-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
-// ==========================================
-// CONSENT CHECKING
-// ==========================================
-
+// Consent checking
 document.addEventListener('DOMContentLoaded', () => {
     const consentPersonal = document.getElementById('consent-personal');
     const consentData = document.getElementById('consent-data');
     const startBtn = document.getElementById('start-btn');
 
     function checkConsent() {
-        startBtn.disabled = !(consentPersonal.checked && consentData.checked);
+        startBtn.disabled = !(consentPersonal?.checked && consentData?.checked);
     }
 
     consentPersonal?.addEventListener('change', checkConsent);
